@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8654788824494706592}
   - component: {fileID: 5591990619097509885}
+  - component: {fileID: -3775217605501254852}
   - component: {fileID: 128080898527030641}
-  - component: {fileID: 1394741244908845076}
   - component: {fileID: 8167587740657233529}
   m_Layer: 6
   m_Name: OrePrefab
@@ -79,17 +79,30 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8425141836431729757, guid: b4bd8b47a3bbe8c4f89c6d0ac4beaf3f, type: 3}
+  m_Sprite: {fileID: 6819953838149922062, guid: 99cf9ee4f03af9e45bdbb5771fd8cf42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2.42, y: 2.41}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3775217605501254852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8183548985919997308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd6d16b9009f7c4eba60a6af25e38ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 1000
 --- !u!114 &128080898527030641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,19 +118,6 @@ MonoBehaviour:
   maxHpMin: 20
   maxHpMax: 60
   yieldAmount: 1
---- !u!114 &1394741244908845076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8183548985919997308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd6d16b9009f7c4eba60a6af25e38ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: 0
 --- !u!58 &8167587740657233529
 CircleCollider2D:
   m_ObjectHideFlags: 0
