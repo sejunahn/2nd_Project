@@ -2,27 +2,38 @@ using UnityEngine;
 
 public class MinerController : MonoBehaviour
 {
+    [Header("Camera")]
     public Camera cam;
+
     [Header("Mining")]
     public float miningRadius = 1.2f;
-    public float dps = 15f; // 초당 채굴량
+    public float dps = 15f;
     public LayerMask oreLayer;
 
     [Header("Visual")]
-    public Transform cursorVisual; // 원형 스프라이트(선택)
+    public SpriteRenderer radiusVisual; // 원형 SpriteRenderer
+    [Range(0.5f, 2f)]
+    public float visualScaleFix = 1f; // 보정 값
 
-    Collider2D[] buffer = new Collider2D[32];
+    private Collider2D[] buffer = new Collider2D[32];
 
     void Start()
     {
         if (cam == null) cam = Camera.main;
+
+        if (radiusVisual != null)
+        {
+            radiusVisual.color = new Color(1f, 1f, 0f, 0.25f);
+        }
+
+        UpdateRadiusVisual();
     }
 
     void Update()
     {
         // 마우스 월드 좌표
         Vector3 mp = Input.mousePosition;
-        mp.z = 10f; // Orthographic이면 아무 값이나 OK, Perspective면 카메라-평면 거리
+        mp.z = Mathf.Abs(cam.transform.position.z); // ✅ 카메라 거리 반영
         Vector3 world = cam.ScreenToWorldPoint(mp);
         world.z = 0f;
         transform.position = world;
@@ -38,17 +49,19 @@ public class MinerController : MonoBehaviour
             if (ore != null) ore.TakeDamage(damage);
         }
 
-        // 비주얼 반경 갱신
-        if (cursorVisual != null)
-        {
-            cursorVisual.position = world;
-            cursorVisual.localScale = Vector3.one * (miningRadius * 2f);
-        }
+        // 반경 시각화 갱신
+        UpdateRadiusVisual();
     }
 
-    void OnDrawGizmosSelected()
+    void UpdateRadiusVisual()
     {
-        Gizmos.color = new Color(1f, 1f, 0f, 0.4f);
-        Gizmos.DrawWireSphere(transform.position, miningRadius);
+        if (radiusVisual != null && radiusVisual.sprite != null)
+        {
+            float spriteSize = radiusVisual.sprite.bounds.size.x;
+            float targetSize = miningRadius * 2f;
+            float scaleFactor = (targetSize / spriteSize) * visualScaleFix;
+
+            radiusVisual.transform.localScale = Vector3.one * scaleFactor;
+        }
     }
 }
