@@ -8,16 +8,18 @@ public class Tooltip : MonoBehaviour
     public static Tooltip Instance;
 
     [Header("UI Elements")]
-    public RectTransform panel;        // 툴팁 패널
-    public Canvas rootCanvas;          // 반드시 Canvas 할당
+    public RectTransform panel;
     public CanvasGroup canvasGroup;
     public TextMeshProUGUI titleText;
-    
+    public TextMeshProUGUI levelText;
     public TextMeshProUGUI infoText;
     public TextMeshProUGUI costText;
 
     [Header("애니메이션 설정")]
     public float fadeDuration = 0.2f;
+
+    [Header("위치 설정")]
+    public Vector2 offset = new Vector2(30f, 20f); // 오프셋 픽셀 단위 조절 가능
 
     private Coroutine fadeCoroutine;
 
@@ -34,17 +36,23 @@ public class Tooltip : MonoBehaviour
         infoText.text = info;
         costText.text = $"Cost: {cost}";
 
+        // Overlay 모드라 Camera = null
         Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(null, worldPos);
 
-        // Overlay 모드니까 그냥 position 사용
-        panel.position = screenPos;
-
-        // 좌/우 피벗
-        float pivotX = screenPos.x < Screen.width / 2 ? 0f : 1f;
+        // 좌/우 판정
+        bool isLeftSide = screenPos.x < Screen.width / 2;
+        float pivotX = isLeftSide ? 0f : 1f;
         panel.pivot = new Vector2(pivotX, 0.5f);
 
-        panel.gameObject.SetActive(true);
+        // 오프셋 적용 (왼쪽/오른쪽 자동 반영)
+        Vector2 finalPos = screenPos;
+        finalPos.x += isLeftSide ? offset.x : -offset.x;
+        finalPos.y += offset.y;
 
+        panel.position = finalPos;
+
+        // Fade In
+        panel.gameObject.SetActive(true);
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
         fadeCoroutine = StartCoroutine(Fade(1f));
     }

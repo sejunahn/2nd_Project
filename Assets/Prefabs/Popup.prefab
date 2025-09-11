@@ -668,12 +668,12 @@ GameObject:
   - component: {fileID: 1361529074399192374}
   - component: {fileID: 4542710489371093591}
   m_Layer: 5
-  m_Name: Tooltip
+  m_Name: UpgradeTooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1361529074399192374
 RectTransform:
   m_ObjectHideFlags: 0
@@ -696,7 +696,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 395, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4542710489371093591
@@ -712,12 +712,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1361529074399192374}
-  rootCanvas: {fileID: 7883210107997486908}
   canvasGroup: {fileID: 887540794772959009}
   titleText: {fileID: 4756731543409305488}
+  levelText: {fileID: 0}
   infoText: {fileID: 5646615457120472122}
   costText: {fileID: 4227505699363274937}
   fadeDuration: 0.2
+  offset: {x: -300, y: 50}
 --- !u!1 &4927811422465680791
 GameObject:
   m_ObjectHideFlags: 0
