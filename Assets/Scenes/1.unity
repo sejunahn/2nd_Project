@@ -290,7 +290,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &653587301
 MonoBehaviour:
@@ -393,10 +393,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: 14
   cols: 14
-  tileWidth: 7
-  tileHeight: 4
+  tileWidth: 11.66667
+  tileHeight: 6.666667
   tilePrefab: {fileID: 583755200846105650, guid: 263f630e29022b5449cd2a58257d7f7b, type: 3}
-  origin: {x: 0, y: -30}
+  origin: {x: 0, y: -45}
   tileCenters: []
   tilesParent: {fileID: 855185463}
 --- !u!4 &853373355
@@ -871,7 +871,6 @@ MonoBehaviour:
   orePrefab: {fileID: 8183548985919997308, guid: 17c216917e7af704f8a1f4b145d1c8ce, type: 3}
   initialCount: 35
   targetCount: 35
-  respawnEvery: 4
   minSpacing: 0.3
   oreLayer:
     serializedVersion: 2
@@ -906,8 +905,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1376988250}
-  miningRadius: 1.2
-  dps: 15
   oreLayer:
     serializedVersion: 2
     m_Bits: 64

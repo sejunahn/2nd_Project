@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: c8438ee163512f74a94e6eab0eec1674
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4358446068267677614
+    second: pickaxa_image_0
+  - first:
+      213: -5516271180961677256
+    second: pickaxa_image_1
+  - first:
+      213: 652544390782535415
+    second: pickaxa_image_2
+  - first:
+      213: -1603157741961293886
+    second: pickaxa_image_3
+  - first:
+      213: -287410505623410181
+    second: pickaxa_image_4
+  - first:
+      213: 204188369025095335
+    second: pickaxa_image_5
+  - first:
+      213: 7147820350997971033
+    second: pickaxa_image_6
+  - first:
+      213: 4803232116379794148
+    second: pickaxa_image_7
+  - first:
+      213: 353014994642362516
+    second: pickaxa_image_8
+  - first:
+      213: -1294061823259537374
+    second: pickaxa_image_9
+  - first:
+      213: 8559721373762045484
+    second: pickaxa_image_10
+  - first:
+      213: 2940010637355171185
+    second: pickaxa_image_11
+  - first:
+      213: -7023920396836395845
+    second: pickaxa_image_12
+  - first:
+      213: 532850515500038917
+    second: pickaxa_image_13
+  - first:
+      213: 5893438932805386494
+    second: pickaxa_image_14
+  - first:
+      213: 3661451208974283047
+    second: pickaxa_image_15
+  - first:
+      213: 6134478806367733640
+    second: pickaxa_image_16
+  - first:
+      213: -9184166594409299738
+    second: pickaxa_image_17
+  - first:
+      213: 1815366040790962829
+    second: pickaxa_image_18
+  - first:
+      213: -2977986536113150539
+    second: pickaxa_image_19
+  - first:
+      213: -5488015609516973340
+    second: pickaxa_image_20
+  - first:
+      213: -4324371429331216346
+    second: pickaxa_image_21
+  - first:
+      213: -1326483054700650546
+    second: pickaxa_image_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pickaxa_image_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 21
+        height: 1006
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7fac76b9f4c7c30800000000000000
+      internalID: 4358446068267677614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 781
+        width: 199
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8300e0e56944273b0800000000000000
+      internalID: -5516271180961677256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 771
+        width: 279
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f644c48aad4e0900800000000000000
+      internalID: 652544390782535415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_3
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 775
+        width: 248
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cfca7f078070c9e0800000000000000
+      internalID: -1603157741961293886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_4
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 785
+        width: 274
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9e99bfaa9e20cf0800000000000000
+      internalID: -287410505623410181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_5
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 1009
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6d1036d3c65d200800000000000000
+      internalID: 204188369025095335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_6
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 784
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950ca8b0db8223360800000000000000
+      internalID: 7147820350997971033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_7
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 527
+        width: 216
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eab096492288a240800000000000000
+      internalID: 4803232116379794148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_8
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 530
+        width: 216
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4906b0c644926e400800000000000000
+      internalID: 353014994642362516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_9
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 527
+        width: 128
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2209833c0a19a0ee0800000000000000
+      internalID: -1294061823259537374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_10
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 531
+        width: 204
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c26c763fc3d3ac670800000000000000
+      internalID: 8559721373762045484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_11
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 281
+        width: 226
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17dbc6b09140dc820800000000000000
+      internalID: 2940010637355171185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_12
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 277
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb422f70d95068e90800000000000000
+      internalID: -7023920396836395845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_13
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 281
+        width: 134
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b73ce78b0156700800000000000000
+      internalID: 532850515500038917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_14
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 275
+        width: 178
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef0825f0c73b9c150800000000000000
+      internalID: 5893438932805386494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_15
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 275
+        width: 226
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7213651b97610d230800000000000000
+      internalID: 3661451208974283047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 25
+        width: 160
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88706b7f8fb022550800000000000000
+      internalID: 6134478806367733640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_17
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 27
+        width: 168
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e0893664294b8080800000000000000
+      internalID: -9184166594409299738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_18
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 1
+        width: 145
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8217aebbc9713910800000000000000
+      internalID: 1815366040790962829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_19
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 21
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b5641106011ca6d0800000000000000
+      internalID: -2977986536113150539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_20
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 0
+        width: 181
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e221f041e6a6d3b0800000000000000
+      internalID: -5488015609516973340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6285dd5b81fbcf3c0800000000000000
+      internalID: -4324371429331216346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pickaxa_image_22
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 0
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf1ef390b2679de0800000000000000
+      internalID: -1326483054700650546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4cf5ed222da77d149b3c0746e5e46e36
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pickaxa_image_0: 4358446068267677614
+      pickaxa_image_1: -5516271180961677256
+      pickaxa_image_10: 8559721373762045484
+      pickaxa_image_11: 2940010637355171185
+      pickaxa_image_12: -7023920396836395845
+      pickaxa_image_13: 532850515500038917
+      pickaxa_image_14: 5893438932805386494
+      pickaxa_image_15: 3661451208974283047
+      pickaxa_image_16: 6134478806367733640
+      pickaxa_image_17: -9184166594409299738
+      pickaxa_image_18: 1815366040790962829
+      pickaxa_image_19: -2977986536113150539
+      pickaxa_image_2: 652544390782535415
+      pickaxa_image_20: -5488015609516973340
+      pickaxa_image_21: -4324371429331216346
+      pickaxa_image_22: -1326483054700650546
+      pickaxa_image_3: -1603157741961293886
+      pickaxa_image_4: -287410505623410181
+      pickaxa_image_5: 204188369025095335
+      pickaxa_image_6: 7147820350997971033
+      pickaxa_image_7: 4803232116379794148
+      pickaxa_image_8: 353014994642362516
+      pickaxa_image_9: -1294061823259537374
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

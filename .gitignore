@@ -6,3 +6,4 @@ Assembly-CSharp.csproj
 2nd_Project.sln
 /.idea
 /.vs
+*.user
