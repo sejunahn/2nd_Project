@@ -40,12 +40,6 @@ public class MinerController : MonoBehaviour
         int count = Physics2D.OverlapCircleNonAlloc(world, StatManager.Instance.miningRadius, buffer, oreLayer);
         float damage = StatManager.Instance.miningDPS * Time.deltaTime;
 
-        if (count > 0)
-        {
-            Debug.Log($"Detected {count} ores in range!");
-        }
-
-
         for (int i = 0; i < count; i++)
         {
             if (buffer[i] == null) continue;
