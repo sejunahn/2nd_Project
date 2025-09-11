@@ -6,8 +6,6 @@ public class MinerController : MonoBehaviour
     public Camera cam;
 
     [Header("Mining")]
-    public float miningRadius = 1.2f;
-    public float dps = 15f;
     public LayerMask oreLayer;
 
     [Header("Visual")]
@@ -39,8 +37,14 @@ public class MinerController : MonoBehaviour
         transform.position = world;
 
         // 반경 내 광석에 데미지
-        int count = Physics2D.OverlapCircleNonAlloc(world, miningRadius, buffer, oreLayer);
-        float damage = dps * Time.deltaTime;
+        int count = Physics2D.OverlapCircleNonAlloc(world, StatManager.Instance.miningRadius, buffer, oreLayer);
+        float damage = StatManager.Instance.miningDPS * Time.deltaTime;
+
+        if (count > 0)
+        {
+            Debug.Log($"Detected {count} ores in range!");
+        }
+
 
         for (int i = 0; i < count; i++)
         {

@@ -9,7 +9,6 @@ public class OreSpawner : MonoBehaviour
     [Header("Spawn Settings")]
     public int initialCount = 35;
     public int targetCount = 35;
-    public float respawnEvery = 4f;
     public float minSpacing = 0.3f; // 광석 간 최소 거리
 
     public LayerMask oreLayer;
@@ -29,7 +28,7 @@ public class OreSpawner : MonoBehaviour
 
     IEnumerator RespawnLoop()
     {
-        var wait = new WaitForSeconds(respawnEvery);
+        var wait = new WaitForSeconds(StatManager.Instance.oreRespawnTime);
         while (true)
         {
             // 자식 수로 현재 스폰량 추적
