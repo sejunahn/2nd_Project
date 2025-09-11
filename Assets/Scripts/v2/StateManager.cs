@@ -20,6 +20,8 @@ public class StatManager
         miningRadius = 1.2f;
         miningDPS = 15f;
         oreRespawnTime = 5f;
+        initCount = 200;
+        maxCount = 200;
 
         unlockOre1 = true;
         unlockOre2 = false;
@@ -31,6 +33,8 @@ public class StatManager
     public float miningRadius;  //마우스 공격 범위
     public float miningDPS; //마우스 공격 dps
     public float oreRespawnTime;    //광석 리스폰 시간
+    public int initCount;   //최초 깔리는 돌개수
+    public int maxCount;    //최대 개수
 
     public bool unlockOre1;
     public bool unlockOre2;
