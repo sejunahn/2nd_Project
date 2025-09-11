@@ -118,6 +118,12 @@ MonoBehaviour:
   maxHpMin: 20
   maxHpMax: 60
   yieldAmount: 1
+  shakeAmount: 0.1
+  shakeDuration: 0.1
+  pickaxePrefab: {fileID: 8647560203103360453, guid: f3580751d8dc99046b6975ac16288c50, type: 3}
+  pickaxeOffset: {x: 1, y: 1}
+  swingAngle: -45
+  swingDuration: 0.15
 --- !u!58 &8167587740657233529
 CircleCollider2D:
   m_ObjectHideFlags: 0

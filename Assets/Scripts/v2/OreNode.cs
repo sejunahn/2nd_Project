@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class OreNode : MonoBehaviour
 {
@@ -9,37 +10,67 @@ public class OreNode : MonoBehaviour
     [Header("Drop")]
     public int yieldAmount = 1;
 
-    [Header("Hit Effect")]
-    public Color hitFlashColor = Color.white;
-    public float flashDuration = 0.1f;
-    public float hitShakeAmount = 0.5f; // 🔥 0.5~1 정도면 눈에 잘 보임
-    public float hitShakeTime = 0.15f;
+    [Header("Pickaxe Effect")]
+    public GameObject pickaxePrefab;
+    public Vector2 pickaxeOffset = new Vector2(1f, 1f); // 광석 기준 위치
+    public float swingAngle = 90f;       // 내려찍는 각도
+    public float downDuration = 0.05f;   // 내려찍는 속도
+    public float hitPause = 0.05f;       // 찍고 멈추는 시간
+    public float upDuration = 0.15f;     // 복귀 속도
 
     private float hp;
-    private SpriteRenderer sr;
-    private Color originalColor;
-    private Vector3 originalPos;
-    private float flashTimer;
+    private GameObject pickaxeObj;
+    private Transform pickaxeTr;
+    private bool isMouseOver = false;
+    private bool isSwinging = false;
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
-        if (sr != null)
-            originalColor = sr.color;
-
-        // ✅ localPosition 대신 worldPosition 저장
-        originalPos = transform.position;
+        if (pickaxePrefab != null)
+        {
+            pickaxeObj = Instantiate(pickaxePrefab, transform);
+            pickaxeObj.transform.localPosition = pickaxeOffset;
+            pickaxeTr = pickaxeObj.transform;
+            pickaxeObj.SetActive(false);
+        }
     }
 
     void OnEnable()
     {
         hp = Random.Range(maxHpMin, maxHpMax);
 
-        if (sr != null)
-            sr.color = originalColor;
+        if (pickaxeObj != null)
+        {
+            pickaxeObj.SetActive(false);
+            pickaxeTr.localEulerAngles = Vector3.zero;
+        }
+    }
 
-        transform.position = originalPos;
-        flashTimer = 0f;
+    void Update()
+    {
+        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = 0f;
+
+        float distance = Vector2.Distance(transform.position, mouseWorld);
+
+        if (distance <= StatManager.Instance.miningRadius)
+        {
+            if (!isMouseOver)
+            {
+                isMouseOver = true;
+                if (pickaxeObj != null) pickaxeObj.SetActive(true);
+            }
+
+            TakeDamage(StatManager.Instance.miningDPS * Time.deltaTime);
+        }
+        else
+        {
+            if (isMouseOver)
+            {
+                isMouseOver = false;
+                if (pickaxeObj != null) pickaxeObj.SetActive(false);
+            }
+        }
     }
 
     public void TakeDamage(float amount)
@@ -48,44 +79,55 @@ public class OreNode : MonoBehaviour
 
         hp -= amount;
 
-        // 반짝 효과
-        if (sr != null)
-            sr.color = hitFlashColor;
-        flashTimer = flashDuration;
-
-        // 흔들림 효과 코루틴
-        StopAllCoroutines();
-        StartCoroutine(HitShake());
+        if (pickaxeObj != null && pickaxeObj.activeSelf && !isSwinging)
+        {
+            StartCoroutine(SwingPickaxe());
+        }
 
         if (hp <= 0f) Deplete();
     }
 
-    System.Collections.IEnumerator HitShake()
+    IEnumerator SwingPickaxe()
     {
-        float timer = hitShakeTime;
-        while (timer > 0f)
+        isSwinging = true;
+
+        float targetAngle = -swingAngle; // -90 → -120 같은 값 추천
+
+        // 🔽 빠르게 내려찍기
+        float timer = 0f;
+        while (timer < downDuration)
         {
-            // 🔥 World 좌표 기준으로 크게 흔들림
-            transform.position = originalPos + (Vector3)Random.insideUnitCircle * hitShakeAmount;
-            timer -= Time.deltaTime;
+            float t = timer / downDuration;
+            // 곡선 느낌: Slerp보다 Lerp + EaseOut 느낌
+            float easedT = 1f - Mathf.Pow(1f - t, 3f); // easeOut cubic
+            float angle = Mathf.Lerp(0f, targetAngle, easedT);
+            pickaxeTr.localEulerAngles = new Vector3(0f, 0f, angle);
+
+            timer += Time.deltaTime;
             yield return null;
         }
+        pickaxeTr.localEulerAngles = new Vector3(0f, 0f, targetAngle);
 
-        // 원래 위치 복귀
-        transform.position = originalPos;
-    }
+        // ⏸ 꽝! 찍고 잠깐 멈춤
+        yield return new WaitForSeconds(hitPause);
 
-    void Update()
-    {
-        if (flashTimer > 0f)
+        // 🔼 원위치로 복귀
+        timer = 0f;
+        while (timer < upDuration)
         {
-            flashTimer -= Time.deltaTime;
-            if (flashTimer <= 0f && sr != null)
-            {
-                sr.color = originalColor;
-            }
+            float t = timer / upDuration;
+            float easedT = t * t; // easeIn quadratic
+            float angle = Mathf.Lerp(targetAngle, 0f, easedT);
+            pickaxeTr.localEulerAngles = new Vector3(0f, 0f, angle);
+
+            timer += Time.deltaTime;
+            yield return null;
         }
+        pickaxeTr.localEulerAngles = Vector3.zero;
+
+        isSwinging = false;
     }
+
 
     void Deplete()
     {
