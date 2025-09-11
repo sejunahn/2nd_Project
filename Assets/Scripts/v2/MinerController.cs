@@ -62,7 +62,7 @@ public class MinerController : MonoBehaviour
         if (radiusVisual != null && radiusVisual.sprite != null)
         {
             float spriteSize = radiusVisual.sprite.bounds.size.x;
-            float targetSize = miningRadius * 2f;
+            float targetSize = StatManager.Instance.miningRadius * 2f;
             float scaleFactor = (targetSize / spriteSize) * visualScaleFix;
 
             radiusVisual.transform.localScale = Vector3.one * scaleFactor;
