@@ -1,57 +1,47 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public enum UpgradeType 
-    { 
-        Radius, 
-        DPS, 
-        Respawn, 
-        UnlockOre, 
-        AttackSpeed, 
-        Damage 
-    }
-    public UpgradeType upgradeType;
-
-    [Header("값 설정")]
-    public float value = 1f;   // 증가/감소 수치
-    public int oreIndex = 0;   // UnlockOre용
-
+    public UpgradeNodeData nodeData;
+    
     [Header("UI")]
     public Button upgradeButton;
     public Image frameImage;
+    public Image backImage;
+    public Image iconImage;
     public Color upgradedColor = Color.green;
-
-    [Header("툴팁 정보")]
-    public string title = "Upgrade Node";
-    [TextArea] public string description;
-    public string costInfo = "100 Gold";
-
-    private int upgradeCount = 0;
-
+    public Color unlockedColor = Color.gray;
+    
+    public void InitNode(UpgradeNodeData nodeData)
+    {
+        this.nodeData = nodeData;
+        SetImages();
+    }
     void Start()
     {
         if (upgradeButton != null)
             upgradeButton.onClick.AddListener(ApplyUpgrade);
     }
 
+
     private void ApplyUpgrade()
     {
-        switch (upgradeType)
+        switch (nodeData.upgradeType)
         {
             case UpgradeType.Radius:
-                StatManager.Instance.UpgradeMiningRadius(value);
+                StatManager.Instance.UpgradeMiningRadius(nodeData.value);
                 break;
             case UpgradeType.DPS:
-                StatManager.Instance.UpgradeDPS(value);
+                StatManager.Instance.UpgradeDPS(nodeData.value);
                 break;
             case UpgradeType.Respawn:
-                StatManager.Instance.ReduceRespawnTime(value);
+                StatManager.Instance.ReduceRespawnTime(nodeData.value);
                 break;
             case UpgradeType.UnlockOre:
-                StatManager.Instance.UnlockOre(oreIndex);
+                StatManager.Instance.UnlockOre(nodeData.oreIndex);
                 break;
             case UpgradeType.AttackSpeed:
                 // StatManager.Instance.UpgradeAttackSpeed(value);
@@ -61,15 +51,31 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 break;
         }
 
-        upgradeCount++;
+        nodeData.upgradeCount++;
 
+        SetImages();
+    }
+
+    public void SetImages()
+    {
         if (frameImage != null)
+            iconImage.color = backImage.color = frameImage.color = unlockedColor;
+
+        else if (nodeData.upgradeCount >= nodeData.upgradeMaxCount)
+        {
+            frameImage.color = Color.yellow;
+            iconImage.color = backImage.color= Color.white;
+        }
+        else
+        {
             frameImage.color = upgradedColor;
+            iconImage.color = backImage.color= Color.white;
+        }
     }
 
     public int GetUpgradeCount()
     {
-        return upgradeCount;
+        return nodeData.upgradeCount;
     }
 
     // ===== 툴팁 이벤트 =====
@@ -80,10 +86,10 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             RectTransform rt = GetComponent<RectTransform>();
             Tooltip.Instance.Show(
-                title,
+                nodeData.title,
                 GetUpgradeCount(),
-                description,
-                costInfo,
+                nodeData.description,
+                nodeData.costInfo,
                 rt.position   //transform.position
             );
         }

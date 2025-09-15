@@ -40,7 +40,7 @@ public class UIDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
         // 위치 제한
         ClampPosition();
 
-        lastMousePos = eventData.position;
+        lastMousePos = eventData.position;{}
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -68,4 +68,6 @@ public class UIDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
         target.anchoredPosition = pos;
     }
+
+  
 }
