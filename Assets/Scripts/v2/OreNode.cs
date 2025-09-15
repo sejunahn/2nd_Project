@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum OreType 
+{
+    Iron, Gold, Diamond 
+}
+
 public class OreNode : MonoBehaviour
 {
     [Header("HP")]
@@ -22,6 +27,10 @@ public class OreNode : MonoBehaviour
     private GameObject pickaxeObj;
     private Transform pickaxeTr;
     private bool isSwinging = false;
+
+    
+
+    public OreType oreType;  // 이 광석이 어떤 종류인지 선택
 
     void Awake()
     {
@@ -103,6 +112,9 @@ public class OreNode : MonoBehaviour
 
     void Deplete()
     {
+        if (OreCollectUI.Instance != null)
+            OreCollectUI.Instance.SpawnFlyingIcon(oreType, transform.position);
+
         var counter = FindObjectOfType<ResourceCounter>();
         if (counter != null) counter.Add(yieldAmount);
 

@@ -17,7 +17,7 @@ public class StatManager
     private StatManager()
     {
         // 초기값 설정
-        miningRadius = 1.2f;
+        miningRadius = 10f;//1.2f;
         miningDPS = 15f;
         oreRespawnTime = 5f;
         initCount = 200;
