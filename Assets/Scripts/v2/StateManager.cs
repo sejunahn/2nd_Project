@@ -24,9 +24,10 @@ public class StatManager
         maxCount = 200;
 
         unlockOre1 = true;
-        unlockOre2 = false;
-        unlockOre3 = false;
-        unlockOre4 = false;
+        unlockOre2 = true;
+        unlockOre3 = true;
+        unlockOre4 = true;
+        unlockOre5 = true;
     }
 
     // ===== 스탯 =====
@@ -40,6 +41,7 @@ public class StatManager
     public bool unlockOre2;
     public bool unlockOre3;
     public bool unlockOre4;
+    public bool unlockOre5;
 
     // ===== 강화 메서드 =====
     public void UpgradeMiningRadius(float add)
@@ -64,6 +66,7 @@ public class StatManager
             case 2: unlockOre2 = true; break;
             case 3: unlockOre3 = true; break;
             case 4: unlockOre4 = true; break;
+            case 5: unlockOre5 = true; break;
         }
     }
 }

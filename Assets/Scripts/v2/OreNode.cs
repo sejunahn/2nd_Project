@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum OreType 
+public enum OreType
 {
-    Iron, Gold, Diamond 
+    A, B, C, D, E
 }
 
 public class OreNode : MonoBehaviour

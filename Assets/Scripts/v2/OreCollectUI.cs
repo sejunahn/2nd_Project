@@ -1,5 +1,6 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
+using TMPro; // TextMeshPro ì‚¬ìš©
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,8 +12,9 @@ public class OreCollectUI : MonoBehaviour
     public class OreUIData
     {
         public OreType type;
-        public GameObject prefab;         // ³¯¾Æ°¡´Â ¾ÆÀÌÄÜ ÇÁ¸®ÆÕ (UI Image)
-        public RectTransform targetIcon;  // ¸ñÇ¥ UI À§Ä¡
+        public GameObject prefab;          // ë‚ ì•„ê°€ëŠ” ì•„ì´ì½˜ í”„ë¦¬íŒ¹
+        public RectTransform targetIcon;   // ëª©í‘œ UI ìœ„ì¹˜
+        public TMP_Text countText;         // ìˆ˜ëŸ‰ í‘œì‹œ UI
     }
 
     [Header("Ore UI Data")]
@@ -23,34 +25,39 @@ public class OreCollectUI : MonoBehaviour
     public Canvas canvas;
 
     [Header("Fly Settings")]
-    public float flyDuration = 0.35f;
+    public float flyDuration = 0.35f;  // ë¹ ë¥´ê²Œ (0.7 â†’ 0.35)
     public float bezierHeight = 120f;
+    public Vector2 iconSize = new Vector2(30f, 30f);
+
+    // ê° ê´‘ì„ ë³´ìœ ëŸ‰
+    private Dictionary<OreType, int> oreCounts = new Dictionary<OreType, int>();
 
     void Awake()
     {
         Instance = this;
         oreUIDict = new Dictionary<OreType, OreUIData>();
+
         foreach (var data in oreUIList)
         {
             if (!oreUIDict.ContainsKey(data.type))
+            {
                 oreUIDict.Add(data.type, data);
+                oreCounts[data.type] = 0; // ì´ˆê¸°í™”
+                if (data.countText != null)
+                    data.countText.text = "0";
+            }
         }
     }
 
-    /// <summary>
-    /// ¿ùµå ÁÂÇ¥ ¡æ Äµ¹ö½º ·ÎÄÃ ÁÂÇ¥ º¯È¯
-    /// Ç×»ó Canvas ±âÁØ ·ÎÄÃ ÁÂÇ¥ ¹İÈ¯
-    /// </summary>
     Vector2 WorldToCanvasLocal(Vector3 worldPos)
     {
         RectTransform canvasRect = canvas.transform as RectTransform;
         Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
 
-        // ¿ùµå ¡æ ½ºÅ©¸°
         Vector3 screenPoint = Camera.main.WorldToScreenPoint(worldPos);
 
-        // ½ºÅ©¸° ¡æ Äµ¹ö½º ·ÎÄÃ
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPoint, cam, out Vector2 localPoint);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRect, screenPoint, cam, out Vector2 localPoint);
 
         return localPoint;
     }
@@ -59,48 +66,29 @@ public class OreCollectUI : MonoBehaviour
     {
         if (!oreUIDict.ContainsKey(type)) return;
         OreUIData data = oreUIDict[type];
-        if (data.prefab == null || data.targetIcon == null || canvas == null) return;
 
-        // 1) ½ÃÀÛ À§Ä¡
+        // ì‹œì‘ ìœ„ì¹˜
         Vector2 startLocal = WorldToCanvasLocal(worldPos);
+        // ëª©í‘œ ìœ„ì¹˜
+        Vector2 targetLocal = canvas.transform.InverseTransformPoint(data.targetIcon.position);
 
-        // 2) ¸ñÇ¥ À§Ä¡ (Äµ¹ö½º ±âÁØ ·ÎÄÃ)
-        Vector3 targetWorldPos = data.targetIcon.position;
-        Vector2 targetLocal = canvas.transform.InverseTransformPoint(targetWorldPos);
-
-        // 3) ¾ÆÀÌÄÜ »ı¼º
+        // ì•„ì´ì½˜ ìƒì„±
         GameObject icon = Instantiate(data.prefab, canvas.transform);
         RectTransform iconTr = icon.GetComponent<RectTransform>();
-        if (iconTr == null)
-        {
-            Debug.LogError("[OreCollectUI] prefab¿¡ RectTransformÀÌ ¾ø½À´Ï´Ù.");
-            Destroy(icon);
-            return;
-        }
-
         iconTr.pivot = new Vector2(0.5f, 0.5f);
         iconTr.anchorMin = iconTr.anchorMax = new Vector2(0.5f, 0.5f);
         iconTr.localScale = Vector3.one;
         iconTr.anchoredPosition = startLocal;
+        iconTr.sizeDelta = iconSize;
 
-        // UI Image ¿ø·¡ Å©±â·Î
-        Image img = icon.GetComponent<Image>();
-        if (img != null)
-        {
-            img.SetNativeSize();
-            iconTr.sizeDelta = new Vector2(30f, 30f); // ¿øÇÏ´Â Å©±â
-        }
-
-        // 4) ÀÌµ¿
-        StartCoroutine(FlyToTarget(iconTr, targetLocal));
+        // ì´ë™
+        StartCoroutine(FlyToTarget(iconTr, targetLocal, type));
     }
 
-    IEnumerator FlyToTarget(RectTransform iconTr, Vector2 end)
+    IEnumerator FlyToTarget(RectTransform iconTr, Vector2 end, OreType type)
     {
         Vector2 start = iconTr.anchoredPosition;
         float t = 0f;
-
-        // Á¦¾îÁ¡: ½ÃÀÛ°ú ³¡ÀÇ Áß°£ + ³ôÀÌ
         Vector2 control = (start + end) * 0.5f + Vector2.up * bezierHeight;
 
         while (t < 1f)
@@ -108,7 +96,6 @@ public class OreCollectUI : MonoBehaviour
             t += Time.deltaTime / flyDuration;
             float ease = Mathf.SmoothStep(0f, 1f, t);
 
-            // 2Â÷ º£Áö¾î
             Vector2 p1 = Vector2.Lerp(start, control, ease);
             Vector2 p2 = Vector2.Lerp(control, end, ease);
             iconTr.anchoredPosition = Vector2.Lerp(p1, p2, ease);
@@ -118,5 +105,13 @@ public class OreCollectUI : MonoBehaviour
 
         iconTr.anchoredPosition = end;
         Destroy(iconTr.gameObject);
+
+        // âœ… ë„ì°© ì‹œ ìˆ˜ëŸ‰ ì¦ê°€
+        oreCounts[type]++;
+        OreUIData data = oreUIDict[type];
+        if (data.countText != null)
+        {
+            data.countText.text = oreCounts[type].ToString();
+        }
     }
 }

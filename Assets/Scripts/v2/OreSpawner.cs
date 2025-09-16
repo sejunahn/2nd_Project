@@ -1,14 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class OreSpawner : MonoBehaviour
 {
     public IsoGridGenerator grid;
-    public GameObject orePrefab;
+    [Header("Ore Prefabs in order (Ore1, Ore2, Ore3, Ore4)")]
+    public GameObject[] orePrefabs;  // 배열로 관리
 
     [Header("Spawn Settings")]
     public float minSpacing = 0.3f; // 광석 간 최소 거리
-
     public LayerMask oreLayer;
 
     void Start()
@@ -29,7 +30,6 @@ public class OreSpawner : MonoBehaviour
         var wait = new WaitForSeconds(StatManager.Instance.oreRespawnTime);
         while (true)
         {
-            // 자식 수로 현재 스폰량 추적
             if (transform.childCount < StatManager.Instance.maxCount)
                 TrySpawnRandom();
 
@@ -39,13 +39,14 @@ public class OreSpawner : MonoBehaviour
 
     void TrySpawnRandom()
     {
+        GameObject orePrefab = GetRandomUnlockedOre();
         if (orePrefab == null || grid == null) return;
 
         SpriteRenderer oreSR = orePrefab.GetComponent<SpriteRenderer>();
         float oreWidth = oreSR != null ? oreSR.bounds.size.x : 1f;
         float oreHeight = oreSR != null ? oreSR.bounds.size.y : 1f;
 
-        float margin = 0.01f; // 살짝 여유
+        float margin = 0.01f;
 
         for (int tries = 0; tries < 50; tries++)
         {
@@ -64,10 +65,10 @@ public class OreSpawner : MonoBehaviour
 
                 Vector2[] corners = new Vector2[]
                 {
-                new Vector2(x - oreWidth/2f, y - oreHeight/2f),
-                new Vector2(x + oreWidth/2f, y - oreHeight/2f),
-                new Vector2(x - oreWidth/2f, y + oreHeight/2f),
-                new Vector2(x + oreWidth/2f, y + oreHeight/2f)
+                    new Vector2(x - oreWidth/2f, y - oreHeight/2f),
+                    new Vector2(x + oreWidth/2f, y - oreHeight/2f),
+                    new Vector2(x - oreWidth/2f, y + oreHeight/2f),
+                    new Vector2(x + oreWidth/2f, y + oreHeight/2f)
                 };
 
                 bool allInside = true;
@@ -94,5 +95,23 @@ public class OreSpawner : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// StatManager의 unlock 상태를 확인해서 랜덤으로 오레 프리팹 하나 반환
+    /// </summary>
+    GameObject GetRandomUnlockedOre()
+    {
+        List<GameObject> unlocked = new List<GameObject>();
+
+        if (StatManager.Instance.unlockOre1 && orePrefabs.Length > 0) unlocked.Add(orePrefabs[0]);
+        if (StatManager.Instance.unlockOre2 && orePrefabs.Length > 1) unlocked.Add(orePrefabs[1]);
+        if (StatManager.Instance.unlockOre3 && orePrefabs.Length > 2) unlocked.Add(orePrefabs[2]);
+        if (StatManager.Instance.unlockOre4 && orePrefabs.Length > 3) unlocked.Add(orePrefabs[3]);
+        if (StatManager.Instance.unlockOre4 && orePrefabs.Length > 4) unlocked.Add(orePrefabs[4]);
+
+        if (unlocked.Count == 0) return null;
+
+        return unlocked[Random.Range(0, unlocked.Count)];
     }
 }
