@@ -13,7 +13,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Image backImage;
     public Image iconImage;
     public Color upgradedColor = Color.green;
-    public Color unlockedColor = Color.gray;
+    public Color lockedColor = Color.gray;
     
     public void InitNode(UpgradeNodeData nodeData)
     {
@@ -49,6 +49,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             case UpgradeType.Damage:
                 // StatManager.Instance.UpgradeDamage(value);
                 break;
+            
         }
 
         nodeData.upgradeCount++;
@@ -58,19 +59,48 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void SetImages()
     {
-        if (frameImage != null)
-            iconImage.color = backImage.color = frameImage.color = unlockedColor;
+        frameImage.color = iconImage.color = backImage.color = lockedColor;
+        // if (playerCurrency < nodeData.upgradeCost)
+        // {
+        //     frameImage.color = iconImage.color = backImage.color = lockedColor;
+        //     return;
+        // }
 
-        else if (nodeData.upgradeCount >= nodeData.upgradeMaxCount)
+        // 2. 업그레이드 가능 (재화 충분)
+        if (nodeData.upgradeCount < nodeData.upgradeMaxCount)
         {
-            frameImage.color = Color.yellow;
-            iconImage.color = backImage.color= Color.white;
+            frameImage.color = Color.white;
+            iconImage.color = backImage.color = Color.white;
+            return;
         }
-        else
+
+        // 3. 업그레이드 중 (최대치 도달 전)
+        if (nodeData.upgradeCount > 0 && nodeData.upgradeCount < nodeData.upgradeMaxCount)
         {
             frameImage.color = upgradedColor;
-            iconImage.color = backImage.color= Color.white;
+            iconImage.color = backImage.color = Color.white;
+            return;
         }
+
+        // 4. 최대치
+        if (nodeData.upgradeCount >= nodeData.upgradeMaxCount)
+        {
+            frameImage.color = Color.yellow;
+            iconImage.color = backImage.color = Color.white;
+        }
+        // if (frameImage != null)
+        //     iconImage.color = backImage.color = frameImage.color = unlockedColor;
+        //
+        // else if (nodeData.upgradeCount >= nodeData.upgradeMaxCount)
+        // {
+        //     frameImage.color = Color.yellow;
+        //     iconImage.color = backImage.color= Color.white;
+        // }
+        // else
+        // {
+        //     frameImage.color = upgradedColor;
+        //     iconImage.color = backImage.color= Color.white;
+        // }
     }
 
     public int GetUpgradeCount()
