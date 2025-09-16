@@ -115,8 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7661514c0395946a1f487f467d4752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHpMin: 20
-  maxHpMax: 60
+  hp: 60
   yieldAmount: 1
   pickaxePrefab: {fileID: 8647560203103360453, guid: f3580751d8dc99046b6975ac16288c50, type: 3}
   pickaxeOffset: {x: 1, y: 1}

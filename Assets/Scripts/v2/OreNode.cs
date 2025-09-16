@@ -9,8 +9,7 @@ public enum OreType
 public class OreNode : MonoBehaviour
 {
     [Header("HP")]
-    public float maxHpMin = 20f;
-    public float maxHpMax = 60f;
+    public float hp = 20;
 
     [Header("Drop")]
     public int yieldAmount = 1;
@@ -23,19 +22,12 @@ public class OreNode : MonoBehaviour
     public float hitPause = 0.05f;
     public float upDuration = 0.15f;
 
-    private float hp;
     private GameObject pickaxeObj;
     private Transform pickaxeTr;
-    private bool isSwinging = false;
-
-    
+    private bool isSwinging = false;    
 
     public OreType oreType;  // 이 광석이 어떤 종류인지 선택
 
-    void Awake()
-    {
-        hp = Random.Range(maxHpMin, maxHpMax);
-    }
 
     void Update()
     {

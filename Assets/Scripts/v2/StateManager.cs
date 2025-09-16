@@ -17,11 +17,17 @@ public class StatManager
     private StatManager()
     {
         // 초기값 설정
-        miningRadius = 10f;//1.2f;
+        miningRadius = 12f;//1.2f;
         miningDPS = 15f;
-        oreRespawnTime = 5f;
+        oreRespawnTime = 1f;
         initCount = 200;
         maxCount = 200;
+
+        goldBarA = 0;
+        goldBarB = 0;
+        goldBarC = 0;
+        goldBarD = 0;
+        goldBarE = 0;
 
         unlockOre1 = true;
         unlockOre2 = true;
@@ -36,6 +42,12 @@ public class StatManager
     public float oreRespawnTime;    //광석 리스폰 시간
     public int initCount;   //최초 깔리는 돌개수
     public int maxCount;    //최대 개수
+
+    public int goldBarA;
+    public int goldBarB;
+    public int goldBarC;
+    public int goldBarD;
+    public int goldBarE;
 
     public bool unlockOre1;
     public bool unlockOre2;
@@ -58,6 +70,14 @@ public class StatManager
     {
         oreRespawnTime = Mathf.Max(0.5f, oreRespawnTime * factor);
     }
+    public void AddGoldBar(int valueA, int valueB, int valueC, int valueD, int valueE)
+    {
+        goldBarA += valueA;
+        goldBarB += valueB;
+        goldBarC += valueC;
+        goldBarD += valueD;
+        goldBarE += valueE;
+    }
 
     public void UnlockOre(int index)
     {
@@ -70,3 +90,4 @@ public class StatManager
         }
     }
 }
+
