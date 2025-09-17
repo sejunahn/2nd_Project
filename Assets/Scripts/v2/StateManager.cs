@@ -13,7 +13,6 @@ public class StatManager
         }
     }
 
-    // 생성자를 private 으로 막음 → 외부에서 new 못함
     private StatManager()
     {
         // 초기값 설정
@@ -55,7 +54,7 @@ public class StatManager
     public bool unlockOre4;
     public bool unlockOre5;
 
-    // ===== 강화 메서드 =====
+    // ===== 강화 =====
     public void UpgradeMiningRadius(float add)
     {
         miningRadius += add;

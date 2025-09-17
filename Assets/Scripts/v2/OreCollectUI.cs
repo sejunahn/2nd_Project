@@ -106,7 +106,7 @@ public class OreCollectUI : MonoBehaviour
         iconTr.anchoredPosition = end;
         Destroy(iconTr.gameObject);
 
-        // ✅ 도착 시 수량 증가
+        // 도착 시 수량 증가
         oreCounts[type]++;
         OreUIData data = oreUIDict[type];
         if (data.countText != null)

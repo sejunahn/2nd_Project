@@ -48,7 +48,7 @@ public class IsoGridGenerator : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    // 선택: 역변환이 필요하면 사용
+    // 역변환이 필요하면 사용
     public Vector2Int WorldToGrid(Vector2 world)
     {
         float cx = (world.x - origin.x) / (tileWidth * 0.5f);

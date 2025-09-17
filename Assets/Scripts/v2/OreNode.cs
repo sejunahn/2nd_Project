@@ -28,12 +28,6 @@ public class OreNode : MonoBehaviour
 
     public OreType oreType;  // 이 광석이 어떤 종류인지 선택
 
-
-    void Update()
-    {
-        // 마우스 범위 체크는 이제 공격 시 TakeDamage 호출에서 처리하므로 여기선 제거 가능
-    }
-
     public void TakeDamage(float amount)
     {
         if (hp <= 0f) return;

@@ -31,7 +31,7 @@ public class MinerController : MonoBehaviour
     {
         // 마우스 월드 좌표
         Vector3 mp = Input.mousePosition;
-        mp.z = Mathf.Abs(cam.transform.position.z); // ✅ 카메라 거리 반영
+        mp.z = Mathf.Abs(cam.transform.position.z); // 카메라 거리 반영
         Vector3 world = cam.ScreenToWorldPoint(mp);
         world.z = 0f;
         transform.position = world;
