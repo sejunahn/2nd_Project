@@ -7,9 +7,6 @@ public class GameManager : MonoBehaviour
     public Button upgradeButton;
     public Text rangeText;
     
-    [Header("References")]
-    public MouseMiningController miningController;
-    
     void Start()
     {
         if (upgradeButton != null)
@@ -23,14 +20,13 @@ public class GameManager : MonoBehaviour
     
     void UpgradeRange()
     {
-        miningController.UpgradeRange();
     }
     
     void UpdateUI()
     {
         if (rangeText != null)
         {
-            rangeText.text = $"감지 범위: {miningController.detectionRange:F1}";
+
         }
     }
 }
