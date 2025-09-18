@@ -16,52 +16,61 @@ public class IsoGridGenerator : MonoBehaviour
     public Transform tilesParent;
 
     [Header("Animation")]
-    public float spawnHeightOffset = 1f;   // 시작 높이
+    public float spawnHeightOffset = 1f;
     public float dropDuration = 0.2f;      // 내려오는 시간
     public float bounceHeight = 0.2f;      // 덜컹 높이
     public float bounceDuration = 0.1f;    // 덜컹 시간
-    public float waveDelay = 0.05f;        // 줄 간 파도 간격
+    public float totalDuration = 1f;       // 전체 완료 시간
 
     void Awake()
     {
-        StartCoroutine(GenerateWave());
+        StartCoroutine(GenerateCenterOut());
     }
 
-    IEnumerator GenerateWave()
+    IEnumerator GenerateCenterOut()
     {
         if (tilesParent == null)
             tilesParent = new GameObject("Tiles").transform;
 
         tileCenters.Clear();
 
-        // 👉 한 줄 단위 파도 효과
+        int totalTiles = rows * cols;
+        float waveDelay = totalDuration / totalTiles; // 1초 안에 모두 완료
+
+        // 모든 좌표 수집
+        List<Vector2Int> coords = new();
         for (int r = 0; r < rows; r++)
-        {
             for (int c = 0; c < cols; c++)
+                coords.Add(new Vector2Int(r, c));
+
+        // CenterOut 패턴 (가운데 → 바깥)
+        Vector2 center = new Vector2(rows / 2f, cols / 2f);
+        coords.Sort((a, b) =>
+            Vector2.Distance(a, center).CompareTo(Vector2.Distance(b, center)));
+
+        // 순서대로 생성
+        foreach (var coord in coords)
+        {
+            Vector2 pos = GridToWorld(coord.x, coord.y);
+            tileCenters.Add(pos);
+
+            if (tilePrefab != null)
             {
-                Vector2 pos = GridToWorld(r, c);
-                tileCenters.Add(pos);
-
-                if (tilePrefab != null)
-                {
-                    var tile = Instantiate(tilePrefab, pos, Quaternion.identity, tilesParent);
-                    tile.name = $"Tile_{r}_{c}";
-
-                    // 생성 애니메이션 시작
-                    StartCoroutine(SpawnAnimation(tile.transform, pos));
-                }
+                var tile = Instantiate(tilePrefab, new Vector3(pos.x, pos.y + spawnHeightOffset, 0), Quaternion.identity, tilesParent);
+                tile.name = $"Tile_{coord.x}_{coord.y}";
+                StartCoroutine(SpawnAnimation(tile.transform, pos));
             }
 
-            // 다음 행으로 넘어가기 전에 딜레이 → 파도처럼 보이게
             yield return new WaitForSeconds(waveDelay);
         }
     }
 
     IEnumerator SpawnAnimation(Transform tile, Vector2 targetPos)
     {
+        tile.gameObject.SetActive(true);
+
         Vector3 startPos = new Vector3(targetPos.x, targetPos.y + spawnHeightOffset, 0f);
         Vector3 endPos = new Vector3(targetPos.x, targetPos.y, 0f);
-
         tile.position = startPos;
 
         // 내려오는 구간
