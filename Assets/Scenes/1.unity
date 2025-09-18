@@ -1005,6 +1005,11 @@ MonoBehaviour:
   origin: {x: 0, y: -45}
   tileCenters: []
   tilesParent: {fileID: 855185463}
+  spawnHeightOffset: 1
+  dropDuration: 0.2
+  bounceHeight: 0.2
+  bounceDuration: 0.1
+  totalDuration: 1
 --- !u!4 &853373355
 Transform:
   m_ObjectHideFlags: 0
