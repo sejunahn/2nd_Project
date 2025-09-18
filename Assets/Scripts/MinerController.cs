@@ -1,14 +1,10 @@
+using System;
 using UnityEngine;
 
 public class MinerController : MonoBehaviour
-{
-    [Header("Camera")]
-    public Camera cam;
-
-    [Header("Mining")]
+{    
+    public Camera cam;     
     public LayerMask oreLayer;
-
-    [Header("Visual")]
     public SpriteRenderer radiusVisual; // 원형 SpriteRenderer
     [Range(0.5f, 2f)]
     public float visualScaleFix = 1f; // 보정 값
@@ -17,13 +13,12 @@ public class MinerController : MonoBehaviour
 
     void Start()
     {
-        if (cam == null) cam = Camera.main;
+        if (cam == null) 
+            cam = Camera.main;
 
-        if (radiusVisual != null)
-        {
+        if (radiusVisual != null)        
             radiusVisual.color = new Color(1f, 1f, 0f, 0.25f);
-        }
-
+        
         UpdateRadiusVisual();
     }
 
@@ -37,15 +32,27 @@ public class MinerController : MonoBehaviour
         transform.position = world;
 
         // 반경 내 광석에 데미지
-        int count = Physics2D.OverlapCircleNonAlloc(world, StatManager.Instance.miningRadius, buffer, oreLayer);
+        //int count = Physics2D.OverlapCircleNonAlloc(world, StatManager.Instance.miningRadius, buffer, oreLayer);
+        //
+        buffer = Physics2D.OverlapCircleAll(world, StatManager.Instance.miningRadius, oreLayer);
+        //
+
         float damage = StatManager.Instance.miningDPS * Time.deltaTime;
 
-        for (int i = 0; i < count; i++)
+        //for (int i = 0; i < count; i++)
+        //{
+        //    if (buffer[i] == null) continue;
+        //    var ore = buffer[i].GetComponent<OreNode>();
+        //    if (ore != null) ore.TakeDamage(damage);
+        //}
+
+        for (int i = 0; i < buffer.Length; i++)
         {
             if (buffer[i] == null) continue;
             var ore = buffer[i].GetComponent<OreNode>();
             if (ore != null) ore.TakeDamage(damage);
         }
+
 
         // 반경 시각화 갱신
         UpdateRadiusVisual();

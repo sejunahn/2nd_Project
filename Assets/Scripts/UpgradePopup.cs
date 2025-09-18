@@ -13,7 +13,6 @@ public class UpgradePopup : MonoBehaviour
       UpgradeNodeDataIO.Save(null);
    }
    
-   
    public void LoadData()
    {
       nodes = null;

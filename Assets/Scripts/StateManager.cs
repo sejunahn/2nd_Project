@@ -15,7 +15,6 @@ public class StatManager
 
     private StatManager()
     {
-        // 초기값 설정
         miningRadius = 12f;//1.2f;
         miningDPS = 15f;
         oreRespawnTime = 1f;
@@ -34,13 +33,12 @@ public class StatManager
         unlockOre4 = true;
         unlockOre5 = true;
     }
-
-    // ===== 스탯 =====
-    public float miningRadius;  //마우스 공격 범위
-    public float miningDPS; //마우스 공격 dps
-    public float oreRespawnTime;    //광석 리스폰 시간
-    public int initCount;   //최초 깔리는 돌개수
-    public int maxCount;    //최대 개수
+    
+    public float miningRadius;
+    public float miningDPS;
+    public float oreRespawnTime;
+    public int initCount;
+    public int maxCount;
 
     public int goldBarA;
     public int goldBarB;
@@ -54,7 +52,7 @@ public class StatManager
     public bool unlockOre4;
     public bool unlockOre5;
 
-    // ===== 강화 =====
+    
     public void UpgradeMiningRadius(float add)
     {
         miningRadius += add;

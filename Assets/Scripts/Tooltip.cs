@@ -19,7 +19,7 @@ public class Tooltip : MonoBehaviour
     public float fadeDuration = 0.2f;
 
     [Header("위치 설정")]
-    public Vector2 offset = new Vector2(30f, 20f); // 오프셋 픽셀 단위 조절 가능
+    public Vector2 offset = new Vector2(30f, 20f); //테스트용 기본값
 
     private Coroutine fadeCoroutine;
 
@@ -32,26 +32,21 @@ public class Tooltip : MonoBehaviour
     public void Show(string title, int level, string info, string cost, Vector3 worldPos)
     {
         titleText.text = title;
-        // levelText.text = $"Lv. {level}";
         infoText.text = info;
         costText.text = $"Cost: {cost}";
 
-        // Overlay 모드라 Camera = null
         Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(null, worldPos);
 
-        // 좌/우 판정
         bool isLeftSide = screenPos.x < Screen.width / 2;
         float pivotX = isLeftSide ? 0f : 1f;
         panel.pivot = new Vector2(pivotX, 0.5f);
 
-        // 오프셋 적용 (왼쪽/오른쪽 자동 반영)
         Vector2 finalPos = screenPos;
         finalPos.x += isLeftSide ? offset.x : -offset.x;
         finalPos.y += offset.y;
 
         panel.position = finalPos;
 
-        // Fade In
         panel.gameObject.SetActive(true);
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
         fadeCoroutine = StartCoroutine(Fade(1f));

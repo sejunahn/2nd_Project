@@ -5,8 +5,7 @@ public class IsoGridGenerator : MonoBehaviour
 {
     [Header("Grid")]
     public int rows = 14;
-    public int cols = 14;
-    [Tooltip("한 타일의 월드 단위 가로/세로")]
+    public int cols = 14;    
     public float tileWidth = 1f;
     public float tileHeight = 0.5f;
     public GameObject tilePrefab;
@@ -22,7 +21,9 @@ public class IsoGridGenerator : MonoBehaviour
 
     public void Generate()
     {
-        if (tilesParent == null) tilesParent = new GameObject("Tiles").transform;
+        if (tilesParent == null)
+            tilesParent = new GameObject("Tiles").transform;
+
         tileCenters.Clear();
 
         for (int r = 0; r < rows; r++)
@@ -48,7 +49,7 @@ public class IsoGridGenerator : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    // 역변환이 필요하면 사용
+    // TODO : 역변환이 필요하면 사용
     public Vector2Int WorldToGrid(Vector2 world)
     {
         float cx = (world.x - origin.x) / (tileWidth * 0.5f);

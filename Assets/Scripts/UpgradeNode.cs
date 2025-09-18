@@ -59,12 +59,8 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void SetImages()
     {
+        // 1. 기본값
         frameImage.color = iconImage.color = backImage.color = lockedColor;
-        // if (playerCurrency < nodeData.upgradeCost)
-        // {
-        //     frameImage.color = iconImage.color = backImage.color = lockedColor;
-        //     return;
-        // }
 
         // 2. 업그레이드 가능 (재화 충분)
         if (nodeData.upgradeCount < nodeData.upgradeMaxCount)
@@ -88,27 +84,13 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             frameImage.color = Color.yellow;
             iconImage.color = backImage.color = Color.white;
         }
-        // if (frameImage != null)
-        //     iconImage.color = backImage.color = frameImage.color = unlockedColor;
-        //
-        // else if (nodeData.upgradeCount >= nodeData.upgradeMaxCount)
-        // {
-        //     frameImage.color = Color.yellow;
-        //     iconImage.color = backImage.color= Color.white;
-        // }
-        // else
-        // {
-        //     frameImage.color = upgradedColor;
-        //     iconImage.color = backImage.color= Color.white;
-        // }
     }
 
     public int GetUpgradeCount()
     {
         return nodeData.upgradeCount;
     }
-
-    // ===== 툴팁 이벤트 =====
+   
     
     public void OnPointerEnter(PointerEventData eventData)
     {
