@@ -19,12 +19,18 @@ public class GameManager : MonoBehaviour
     #endregion
 
 
-/*
- * 1. gamestart -> dissorve ->  gridGen -> oreGen -> uiSetting-> resolve -> ingame
- * 2. endgame[timer] -> pause -> keepgoing or upgrade -> 1.
- *                                                    -> upgradepopup call -> upgradeing -> startgame -> saveData -> 1.
- * 
- */
+    /*
+     * 1. gamestart -> dissorve ->  gridGen -> oreGen -> uiSetting-> resolve -> ingame
+     * 2. endgame[timer] -> pause -> keepgoing or upgrade -> 1.
+     *                                                    -> upgradepopup call -> upgradeing -> startgame -> saveData -> 1.
+     * 
+     */
+
+    public void Start()
+    {
+        StartGame();
+    }
+
     public void StartGame()
     {
         //뭔가 데이터를 먼저 로드할거면 방식 추가해야됨.

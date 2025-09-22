@@ -168,6 +168,7 @@ MonoBehaviour:
   oreSpawner: {fileID: 1676026845}
   gridGenerator: {fileID: 853373354}
   upgradePopup: {fileID: 318311862}
+  minerController: {fileID: 2090608729}
 --- !u!1001 &318311861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2604,6 +2605,7 @@ MonoBehaviour:
     m_Bits: 64
   radiusVisual: {fileID: 1544752338}
   visualScaleFix: 1
+  isActive: 0
 --- !u!4 &2090608730
 Transform:
   m_ObjectHideFlags: 0
