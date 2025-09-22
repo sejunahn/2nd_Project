@@ -12,12 +12,13 @@ public class OreSpawner : MonoBehaviour
     public float minSpacing = 0.3f; // 광석 간 최소 거리
     public LayerMask oreLayer;
 
-    void Start()
+    public void Init()
     {
         if (grid == null) grid = FindObjectOfType<IsoGridGenerator>();
         SpawnInitial();
         StartCoroutine(RespawnLoop());
     }
+
 
     void SpawnInitial()
     {
@@ -104,11 +105,11 @@ public class OreSpawner : MonoBehaviour
     {
         List<GameObject> unlocked = new List<GameObject>();
 
-        if (StatManager.Instance.unlockOre1 && orePrefabs.Length > 0) unlocked.Add(orePrefabs[0]);
-        if (StatManager.Instance.unlockOre2 && orePrefabs.Length > 1) unlocked.Add(orePrefabs[1]);
-        if (StatManager.Instance.unlockOre3 && orePrefabs.Length > 2) unlocked.Add(orePrefabs[2]);
-        if (StatManager.Instance.unlockOre4 && orePrefabs.Length > 3) unlocked.Add(orePrefabs[3]);
-        if (StatManager.Instance.unlockOre4 && orePrefabs.Length > 4) unlocked.Add(orePrefabs[4]);
+        if (StatManager.Instance.unlockIron && orePrefabs.Length > 0) unlocked.Add(orePrefabs[0]);
+        if (StatManager.Instance.unlockCopper && orePrefabs.Length > 1) unlocked.Add(orePrefabs[1]);
+        if (StatManager.Instance.unlockSilver && orePrefabs.Length > 2) unlocked.Add(orePrefabs[2]);
+        if (StatManager.Instance.unlockGold && orePrefabs.Length > 3) unlocked.Add(orePrefabs[3]);
+        if (StatManager.Instance.unlockGold && orePrefabs.Length > 4) unlocked.Add(orePrefabs[4]);
 
         if (unlocked.Count == 0) return null;
 

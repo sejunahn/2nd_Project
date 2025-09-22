@@ -24,7 +24,6 @@ public class UpgradeNodeData
     public UpgradeType upgradeType;
     
     public float value = 1f;   // 증가/감소 수치
-    public int oreIndex = 0;   // UnlockOre용
     
     //툴팁정보
     public string title = "";
@@ -35,5 +34,14 @@ public class UpgradeNodeData
     public int upgradeCount;
     public int upgradeMaxCount;
     
+    public UpgradeValues[] upgradeValues;
+    
     //TODO: 추후 value, upgradeType 과 upgradeCount를 조합해서 실제 스탯에 곱해주면 될듯.
+}
+
+[System.Serializable]
+public class UpgradeValues
+{
+    public int oreIndex;
+    public int oreValue;
 }

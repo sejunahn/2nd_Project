@@ -11,7 +11,19 @@ public class MinerController : MonoBehaviour
 
     private Collider2D[] buffer = new Collider2D[32];
 
-    void Start()
+    public bool isActive = false;
+
+    public void SetActiveController()
+    {
+        isActive = true;
+    }
+
+    public void SetInactiveController()
+    {
+        isActive = false;
+    }
+    
+    void Awake()
     {
         if (cam == null) 
             cam = Camera.main;
@@ -24,38 +36,42 @@ public class MinerController : MonoBehaviour
 
     void Update()
     {
-        // 마우스 월드 좌표
-        Vector3 mp = Input.mousePosition;
-        mp.z = Mathf.Abs(cam.transform.position.z); // 카메라 거리 반영
-        Vector3 world = cam.ScreenToWorldPoint(mp);
-        world.z = 0f;
-        transform.position = world;
-
-        // 반경 내 광석에 데미지
-        //int count = Physics2D.OverlapCircleNonAlloc(world, StatManager.Instance.miningRadius, buffer, oreLayer);
-        //
-        buffer = Physics2D.OverlapCircleAll(world, StatManager.Instance.miningRadius, oreLayer);
-        //
-
-        float damage = StatManager.Instance.miningDPS * Time.deltaTime;
-
-        //for (int i = 0; i < count; i++)
-        //{
-        //    if (buffer[i] == null) continue;
-        //    var ore = buffer[i].GetComponent<OreNode>();
-        //    if (ore != null) ore.TakeDamage(damage);
-        //}
-
-        for (int i = 0; i < buffer.Length; i++)
+        if (isActive)
         {
-            if (buffer[i] == null) continue;
-            var ore = buffer[i].GetComponent<OreNode>();
-            if (ore != null) ore.TakeDamage(damage);
+            Vector3 mp = Input.mousePosition;
+            mp.z = Mathf.Abs(cam.transform.position.z); // 카메라 거리 반영
+            Vector3 world = cam.ScreenToWorldPoint(mp);
+            world.z = 0f;
+            transform.position = world;
+
+            // 반경 내 광석에 데미지
+            //int count = Physics2D.OverlapCircleNonAlloc(world, StatManager.Instance.miningRadius, buffer, oreLayer);
+            //
+            buffer = Physics2D.OverlapCircleAll(world, StatManager.Instance.miningRadius, oreLayer);
+            //
+
+            float damage = StatManager.Instance.miningDPS * Time.deltaTime;
+
+            //for (int i = 0; i < count; i++)
+            //{
+            //    if (buffer[i] == null) continue;
+            //    var ore = buffer[i].GetComponent<OreNode>();
+            //    if (ore != null) ore.TakeDamage(damage);
+            //}
+
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                if (buffer[i] == null) continue;
+                var ore = buffer[i].GetComponent<OreNode>();
+                if (ore != null) ore.TakeDamage(damage);
+            }
+
+
+            // 반경 시각화 갱신
+            UpdateRadiusVisual();   
         }
-
-
-        // 반경 시각화 갱신
-        UpdateRadiusVisual();
+        // 마우스 월드 좌표
+        
     }
 
     void UpdateRadiusVisual()

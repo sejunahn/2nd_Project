@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -26,8 +27,30 @@ public class UpgradePopup : MonoBehaviour
       }
    }
 
-   public void Init()
+   private void Init()
    {
+      LoadData();
+   }
+
+   public void Show()
+   {
+      StartCoroutine(IE_PopupShow());
+   }
+
+   public IEnumerator IE_PopupShow()
+   {
+      Init();
       
+      yield return null;
+      
+      this.gameObject.SetActive(true);
+   }
+
+   public IEnumerator ClosePopup()
+   {
+      yield return null;
+      this.gameObject.SetActive(false);
+      SaveData();
+      // TODO:게임 스타트 연결
    }
 }

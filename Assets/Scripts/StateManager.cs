@@ -21,17 +21,16 @@ public class StatManager
         initCount = 200;
         maxCount = 200;
 
-        goldBarA = 0;
-        goldBarB = 0;
-        goldBarC = 0;
-        goldBarD = 0;
-        goldBarE = 0;
+        stoneBar = 0;
+        ironBar = 0;
+        copperBar = 0;
+        silverBar = 0;
+        goldBar = 0;
 
-        unlockOre1 = true;
-        unlockOre2 = true;
-        unlockOre3 = true;
-        unlockOre4 = true;
-        unlockOre5 = true;
+        unlockIron = true;
+        unlockCopper = true;
+        unlockSilver = true;
+        unlockGold = true;
     }
     
     public float miningRadius;
@@ -40,17 +39,17 @@ public class StatManager
     public int initCount;
     public int maxCount;
 
-    public int goldBarA;
-    public int goldBarB;
-    public int goldBarC;
-    public int goldBarD;
-    public int goldBarE;
+    public int stoneBar;
+    public int ironBar;
+    public int copperBar;
+    public int silverBar;
+    public int goldBar;
 
-    public bool unlockOre1;
-    public bool unlockOre2;
-    public bool unlockOre3;
-    public bool unlockOre4;
-    public bool unlockOre5;
+    public bool unlockIron;
+    public bool unlockCopper;
+    public bool unlockSilver;
+    public bool unlockGold;
+    
 
     
     public void UpgradeMiningRadius(float add)
@@ -67,23 +66,23 @@ public class StatManager
     {
         oreRespawnTime = Mathf.Max(0.5f, oreRespawnTime * factor);
     }
-    public void AddGoldBar(int valueA, int valueB, int valueC, int valueD, int valueE)
+    public void AddBar(int valueA, int valueB, int valueC, int valueD, int valueE)
     {
-        goldBarA += valueA;
-        goldBarB += valueB;
-        goldBarC += valueC;
-        goldBarD += valueD;
-        goldBarE += valueE;
+        stoneBar += valueA;
+        ironBar += valueB;
+        copperBar += valueC;
+        silverBar += valueD;
+        goldBar += valueE;
     }
 
     public void UnlockOre(int index)
     {
         switch (index)
         {
-            case 2: unlockOre2 = true; break;
-            case 3: unlockOre3 = true; break;
-            case 4: unlockOre4 = true; break;
-            case 5: unlockOre5 = true; break;
+            case 1: unlockIron = true; break;
+            case 2: unlockCopper = true; break;
+            case 3: unlockSilver = true; break;
+            case 4: unlockGold = true; break;
         }
     }
 }

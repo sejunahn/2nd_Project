@@ -22,7 +22,7 @@ public class IsoGridGenerator : MonoBehaviour
     public float bounceDuration = 0.1f;    // 덜컹 시간
     public float totalDuration = 1f;       // 전체 완료 시간
 
-    void Awake()
+    public void Init()
     {
         StartCoroutine(GenerateCenterOut());
     }

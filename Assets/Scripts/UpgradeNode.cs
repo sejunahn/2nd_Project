@@ -41,7 +41,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 StatManager.Instance.ReduceRespawnTime(nodeData.value);
                 break;
             case UpgradeType.UnlockOre:
-                StatManager.Instance.UnlockOre(nodeData.oreIndex);
+                // StatManager.Instance.UnlockOre(nodeData.oreIndex);
                 break;
             case UpgradeType.AttackSpeed:
                 // StatManager.Instance.UpgradeAttackSpeed(value);

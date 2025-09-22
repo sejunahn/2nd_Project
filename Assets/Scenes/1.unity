@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 76032169}
+  - component: {fileID: 76032170}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -152,6 +153,21 @@ Transform:
   - {fileID: 1676026844}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76032170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76032168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490d1245782f8a8479edc4bde71a6fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oreSpawner: {fileID: 1676026845}
+  gridGenerator: {fileID: 853373354}
+  upgradePopup: {fileID: 318311862}
 --- !u!1001 &318311861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,6 +229,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de350e96289d6914383863e1529475aa, type: 3}
+--- !u!114 &318311862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7791467782378905972, guid: de350e96289d6914383863e1529475aa, type: 3}
+  m_PrefabInstance: {fileID: 318311861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2040f0ffeb7e27545b5130604a35d921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &337552398
 GameObject:
   m_ObjectHideFlags: 0
