@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,9 +11,13 @@ public class UpgradePopup : MonoBehaviour
    [SerializeField]private List<UpgradeNode> upgradeNodes;
    
    [SerializeField] private GameObject upgradePopup;
+   
+   private Action endAction;
+   private Coroutine Co_Popup;
    public void SaveData()
    {
-      UpgradeNodeDataIO.Save(null);
+      //TODO: save는 구현아직 안됐음
+      // UpgradeNodeDataIO.Save(nodes);
    }
    
    public void LoadData()
@@ -31,12 +36,25 @@ public class UpgradePopup : MonoBehaviour
    private void Init()
    {
       LoadData();
+      
    }
 
-   public void Show()
+   public void Show(Action action)
    {
+      endAction = action;
       Init();
-      StartCoroutine(IE_PopupShow());
+      if(Co_Popup != null)
+         StopCoroutine(Co_Popup);
+      
+      Co_Popup = StartCoroutine(IE_PopupShow());
+   }
+
+   public void Close()
+   {
+      if(Co_Popup != null)
+         StopCoroutine(Co_Popup);
+      
+      Co_Popup = StartCoroutine(ClosePopup());
    }
 
    public IEnumerator IE_PopupShow()
@@ -51,6 +69,8 @@ public class UpgradePopup : MonoBehaviour
       yield return null;
       upgradePopup.SetActive(false);
       SaveData();
+      
       // TODO:게임 스타트 연결
+      endAction();
    }
 }

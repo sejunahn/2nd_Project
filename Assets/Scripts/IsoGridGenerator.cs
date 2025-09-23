@@ -24,15 +24,32 @@ public class IsoGridGenerator : MonoBehaviour
 
     public void Init()
     {
+        if (tileCenters.Count != 0)
+        {
+            ClearRemainingTiles();
+        }
+        
         StartCoroutine(GenerateCenterOut());
     }
 
+    public void ClearRemainingTiles()
+    {
+        if (tilesParent != null)
+        {
+            for (int i = tilesParent.childCount - 1; i >= 0; i--)
+            {
+                Destroy(tilesParent.GetChild(i).gameObject);
+            }
+        }
+    }
+    
     IEnumerator GenerateCenterOut()
     {
         if (tilesParent == null)
             tilesParent = new GameObject("Tiles").transform;
-
+        
         tileCenters.Clear();
+        
 
         int totalTiles = rows * cols;
         float waveDelay = totalDuration / totalTiles; // 1초 안에 모두 완료

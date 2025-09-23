@@ -23,12 +23,14 @@ public class GameManager : MonoBehaviour
     public static event Action<float> OnTimerUpdate;
     public static event Action OnTimerEnd;
 
+    public Action endUpgradeAction;
+    
     #region Popups
     
     public void CallUpgradePopup()
     {
         //실제 켜주기
-        upgradePopup.Show();
+        upgradePopup.Show(endUpgradeAction);
         PauseGame();
     }
     #endregion
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
      */
     public void Start()
     {
+        endUpgradeAction = ()=> { OnUpgradeComplete(); };
         StartGame();
     }
 
