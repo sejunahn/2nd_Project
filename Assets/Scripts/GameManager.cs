@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] UpgradePopup upgradePopup;
 
     [SerializeField] MinerController minerController;
+
+    [SerializeField] SwordSkill swordSkill;
     #region Popups
-    
+
     public void CallUpgradePopup()
     {
         //실제 켜주기
@@ -38,5 +40,6 @@ public class GameManager : MonoBehaviour
         gridGenerator.Init();
         oreSpawner.Init();
         minerController.SetActiveController();
+        swordSkill.Init();
     }
 }

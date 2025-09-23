@@ -1,3 +1,4 @@
+using UnityEditor.VisionOS;
 using UnityEngine;
 
 public class StatManager
@@ -31,6 +32,8 @@ public class StatManager
         unlockCopper = true;
         unlockSilver = true;
         unlockGold = true;
+
+        unlockSword = true;
     }
     
     public float miningRadius;
@@ -49,6 +52,8 @@ public class StatManager
     public bool unlockCopper;
     public bool unlockSilver;
     public bool unlockGold;
+
+    public bool unlockSword;
     
 
     
@@ -73,6 +78,11 @@ public class StatManager
         copperBar += valueC;
         silverBar += valueD;
         goldBar += valueE;
+    }
+
+    public void UnlockSword()
+    {
+        unlockSword = true;
     }
 
     public void UnlockOre(int index)
