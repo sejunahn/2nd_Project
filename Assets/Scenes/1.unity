@@ -1530,11 +1530,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77395f886a2e724f8e7efee9556d618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingInterval: 3
-  swingAngle: 120
-  swingDuration: 0.3
+  stampInterval: 1
+  stampDuration: 0.2
+  returnDuration: 0.1
+  stampHeight: 2
   hitRadius: 2
-  damage: 20
+  damage: 20000
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1584,7 +1585,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10000
-  m_Sprite: {fileID: -1294061823259537374, guid: c8438ee163512f74a94e6eab0eec1674, type: 3}
+  m_Sprite: {fileID: 21300052, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

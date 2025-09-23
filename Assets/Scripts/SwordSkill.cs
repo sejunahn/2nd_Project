@@ -1,30 +1,32 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SwordSkill : MonoBehaviour
 {
-    [Header("Swing Settings")]
-    public float swingInterval = 1f;     // 몇 초마다 발동
-    public float swingAngle = 120f;      // 휘두르는 각도
-    public float swingDuration = 0.3f;   // 휘두르는 속도
-    public float hitRadius = 2.5f;       // 타격 범위 반경
-    public float damage = 20000f;        // 데미지
-    public LayerMask targetLayer;        // 타격 대상 레이어 (Ore)
+    [Header("Stamp Settings")]
+    public float stampInterval = 1f;    // 몇 초마다 발동
+    public float stampDuration = 0.2f;  // 내려찍는 속도
+    public float returnDuration = 0.1f; // 올라가는 속도
+    public float stampHeight = 2f;      // 위에서 얼마나 내려오는지
+    public float hitRadius = 2.5f;      // 범위
+    public float damage = 20000f;       // 데미지
+    public LayerMask targetLayer;       // Ore 레이어
 
     [Header("Area Visual")]
-    public GameObject areaIndicatorPrefab; // 범위 보여줄 프리팹 (투명 원)
+    public GameObject areaIndicatorPrefab;
     private GameObject areaIndicator;
 
     [Header("Dependencies")]
-    public IsoGridGenerator gridGenerator; // 맵 크기 가져오기 (Inspector 연결 필요)
+    public IsoGridGenerator gridGenerator;
 
-    private bool isSwinging = false;
-    private SpriteRenderer swordRenderer;  // 칼 스프라이트 숨기기용
+    private bool isStamping = false;
+    private SpriteRenderer swordRenderer;
 
     void Awake()
     {
         swordRenderer = GetComponent<SpriteRenderer>();
-        if (swordRenderer != null) swordRenderer.enabled = false; // 처음엔 안보이게
+        if (swordRenderer != null) swordRenderer.enabled = false;
     }
 
     public void Init()
@@ -37,80 +39,103 @@ public class SwordSkill : MonoBehaviour
     {
         while (StatManager.Instance.unlockSword)
         {
-            yield return new WaitForSeconds(swingInterval);
+            yield return new WaitForSeconds(stampInterval);
 
-            // 맵 전체 랜덤 좌표
-            Vector2 spawnPos = GetRandomMapPosition();
-            transform.position = spawnPos;
+            // 광석 위치 가져오기
+            Vector2? spawnPos = GetRandomOrePosition();
+            if (spawnPos == null)
+                continue; // 광석이 없으면 발동 안 함
 
-            // 칼 보이게
+            transform.position = spawnPos.Value;
+
             if (swordRenderer != null) swordRenderer.enabled = true;
 
-            yield return StartCoroutine(SwingRoutine());
+            yield return StartCoroutine(StampRoutine());
 
-            // 칼 숨기기
             if (swordRenderer != null) swordRenderer.enabled = false;
         }
     }
 
-    IEnumerator SwingRoutine()
+    IEnumerator StampRoutine()
     {
-        if (isSwinging) yield break;
-        isSwinging = true;
+        if (isStamping) yield break;
+        isStamping = true;
 
-        // 범위 표시 생성
+        // 범위 원 표시
         if (areaIndicatorPrefab != null)
         {
             areaIndicator = Instantiate(areaIndicatorPrefab, transform.position, Quaternion.identity);
             areaIndicator.transform.localScale = Vector3.one * (hitRadius * 2f);
         }
 
+        Vector3 startPos = transform.position + Vector3.up * stampHeight;
+        Vector3 targetPos = transform.position;
+
+        // 위에서 시작
+        transform.position = startPos;
+
+        // 내려찍기
         float elapsed = 0f;
-        float startAngle = -swingAngle / 2f;
-        float endAngle = swingAngle / 2f;
-
-        transform.rotation = Quaternion.Euler(0, 0, startAngle);
-
-        while (elapsed < swingDuration)
+        while (elapsed < stampDuration)
         {
-            float t = elapsed / swingDuration;
-            float angle = Mathf.Lerp(startAngle, endAngle, t);
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            float t = elapsed / stampDuration;
+            transform.position = Vector3.Lerp(startPos, targetPos, t);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = targetPos;
 
-            // 타격 처리
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, targetLayer);
-            foreach (var hit in hits)
-            {
-                OreNode ore = hit.GetComponent<OreNode>();
-                if (ore != null)
-                    ore.TakeDamage(damage);
-            }
+        // 충돌 처리 (쾅 찍을 때 한 번만)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, targetLayer);
+        foreach (var hit in hits)
+        {
+            OreNode ore = hit.GetComponent<OreNode>();
+            if (ore != null)
+                ore.TakeDamage(damage);
+        }
 
+        // 살짝 다시 올라갔다가 사라지게
+        elapsed = 0f;
+        Vector3 returnPos = targetPos + Vector3.up * (stampHeight * 0.3f);
+        while (elapsed < returnDuration)
+        {
+            float t = elapsed / returnDuration;
+            transform.position = Vector3.Lerp(targetPos, returnPos, t);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        // 범위 표시 제거
+        // 범위 원 제거
         if (areaIndicator != null) Destroy(areaIndicator);
 
-        isSwinging = false;
+        isStamping = false;
     }
 
-    private Vector2 GetRandomMapPosition()
+    /// <summary>
+    /// 살아있는 광석 중 하나의 위치를 랜덤으로 반환.
+    /// 없으면 null 반환.
+    /// </summary>
+    private Vector2? GetRandomOrePosition()
     {
-        if (gridGenerator == null || gridGenerator.tileCenters.Count == 0)
+        OreNode[] ores = FindObjectsOfType<OreNode>();
+        List<OreNode> aliveOres = new List<OreNode>();
+
+        foreach (var ore in ores)
         {
-            // 기본 fallback (화면 내 랜덤)
-            return new Vector2(Random.Range(-5f, 5f), Random.Range(-3f, 3f));
+            if (ore != null && ore.hp > 0) // OreNode에 currentHp 필드 있다고 가정
+                aliveOres.Add(ore);
         }
 
-        // 타일 좌표 중 랜덤 하나 뽑기
-        return gridGenerator.tileCenters[Random.Range(0, gridGenerator.tileCenters.Count)];
+        if (aliveOres.Count == 0)
+            return null; // 살아있는 광석 없음
+
+        OreNode targetOre = aliveOres[Random.Range(0, aliveOres.Count)];
+        return targetOre.transform.position;
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1f, 0f, 0f, 0.3f);
+        Gizmos.color = new Color(0f, 0f, 1f, 0.3f);
         Gizmos.DrawSphere(transform.position, hitRadius);
     }
 }

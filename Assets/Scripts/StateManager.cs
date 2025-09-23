@@ -19,7 +19,7 @@ public class StatManager
         miningRadius = 12f;//1.2f;
         miningDPS = 15f;
         oreRespawnTime = 1f;
-        initCount = 200;
+        initCount = 20;
         maxCount = 200;
 
         stoneBar = 0;
@@ -28,6 +28,7 @@ public class StatManager
         silverBar = 0;
         goldBar = 0;
 
+        unlockSton = true;
         unlockIron = true;
         unlockCopper = true;
         unlockSilver = true;
@@ -36,7 +37,7 @@ public class StatManager
         unlockSword = true;
     }
 
-    public float Timer = 3f;
+    public float Timer = 300f;
     public float miningRadius;
     public float miningDPS;
     public float oreRespawnTime;
@@ -49,6 +50,7 @@ public class StatManager
     public int silverBar;
     public int goldBar;
 
+    public bool unlockSton;
     public bool unlockIron;
     public bool unlockCopper;
     public bool unlockSilver;
@@ -90,10 +92,11 @@ public class StatManager
     {
         switch (index)
         {
-            case 1: unlockIron = true; break;
-            case 2: unlockCopper = true; break;
-            case 3: unlockSilver = true; break;
-            case 4: unlockGold = true; break;
+            case 1: unlockSton = true; break;
+            case 2: unlockIron = true; break;
+            case 3: unlockCopper = true; break;
+            case 4: unlockSilver = true; break;
+            case 5: unlockGold = true; break;
         }
     }
 }

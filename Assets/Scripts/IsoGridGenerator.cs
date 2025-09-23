@@ -42,30 +42,26 @@ public class IsoGridGenerator : MonoBehaviour
             }
         }
     }
-    
+
+    public System.Action OnGridGenerated; // 생성 완료 콜백
+
     IEnumerator GenerateCenterOut()
     {
         if (tilesParent == null)
             tilesParent = new GameObject("Tiles").transform;
-        
+
         tileCenters.Clear();
-        
-
         int totalTiles = rows * cols;
-        float waveDelay = totalDuration / totalTiles; // 1초 안에 모두 완료
+        float waveDelay = totalDuration / totalTiles;
 
-        // 모든 좌표 수집
         List<Vector2Int> coords = new();
         for (int r = 0; r < rows; r++)
             for (int c = 0; c < cols; c++)
                 coords.Add(new Vector2Int(r, c));
 
-        // CenterOut 패턴 (가운데 → 바깥)
         Vector2 center = new Vector2(rows / 2f, cols / 2f);
-        coords.Sort((a, b) =>
-            Vector2.Distance(a, center).CompareTo(Vector2.Distance(b, center)));
+        coords.Sort((a, b) => Vector2.Distance(a, center).CompareTo(Vector2.Distance(b, center)));
 
-        // 순서대로 생성
         foreach (var coord in coords)
         {
             Vector2 pos = GridToWorld(coord.x, coord.y);
@@ -80,7 +76,11 @@ public class IsoGridGenerator : MonoBehaviour
 
             yield return new WaitForSeconds(waveDelay);
         }
+
+        // 맵 생성 완료 시점
+        OnGridGenerated?.Invoke();
     }
+
 
     IEnumerator SpawnAnimation(Transform tile, Vector2 targetPos)
     {

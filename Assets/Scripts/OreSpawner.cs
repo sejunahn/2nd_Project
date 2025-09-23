@@ -4,26 +4,33 @@ using System.Collections.Generic;
 
 public class OreSpawner : MonoBehaviour
 {
+    [Header("Dependencies")]
     public IsoGridGenerator grid;
-    [Header("Ore Prefabs in order (Ore1, Ore2, Ore3, Ore4)")]
+
+    [Header("Ore Prefabs in order (Ore1, Ore2, Ore3, Ore4, Ore5)")]
     public GameObject[] orePrefabs;  // 배열로 관리
 
     [Header("Spawn Settings")]
     public float minSpacing = 0.3f; // 광석 간 최소 거리
     public LayerMask oreLayer;
 
+
     public void Init()
     {
         if (grid == null) grid = FindObjectOfType<IsoGridGenerator>();
+
+        // 초기 생성
         SpawnInitial();
+
+        // 재생성 루프
         StartCoroutine(RespawnLoop());
     }
-
 
     void SpawnInitial()
     {
         int n = Mathf.Min(StatManager.Instance.initCount, grid.tileCenters.Count);
-        for (int i = 0; i < n; i++) TrySpawnRandom();
+        for (int i = 0; i < n; i++)
+            TrySpawnRandom();
     }
 
     IEnumerator RespawnLoop()
@@ -105,10 +112,10 @@ public class OreSpawner : MonoBehaviour
     {
         List<GameObject> unlocked = new List<GameObject>();
 
-        if (StatManager.Instance.unlockIron && orePrefabs.Length > 0) unlocked.Add(orePrefabs[0]);
-        if (StatManager.Instance.unlockCopper && orePrefabs.Length > 1) unlocked.Add(orePrefabs[1]);
-        if (StatManager.Instance.unlockSilver && orePrefabs.Length > 2) unlocked.Add(orePrefabs[2]);
-        if (StatManager.Instance.unlockGold && orePrefabs.Length > 3) unlocked.Add(orePrefabs[3]);
+        if(StatManager.Instance.unlockSton && orePrefabs.Length >0) unlocked.Add(orePrefabs[0]);
+        if (StatManager.Instance.unlockIron && orePrefabs.Length > 1) unlocked.Add(orePrefabs[1]);
+        if (StatManager.Instance.unlockCopper && orePrefabs.Length > 2) unlocked.Add(orePrefabs[2]);
+        if (StatManager.Instance.unlockSilver && orePrefabs.Length > 3) unlocked.Add(orePrefabs[3]);
         if (StatManager.Instance.unlockGold && orePrefabs.Length > 4) unlocked.Add(orePrefabs[4]);
 
         if (unlocked.Count == 0) return null;
