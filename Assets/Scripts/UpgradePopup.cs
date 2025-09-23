@@ -9,6 +9,7 @@ public class UpgradePopup : MonoBehaviour
 
    [SerializeField]private List<UpgradeNode> upgradeNodes;
    
+   [SerializeField] private GameObject upgradePopup;
    public void SaveData()
    {
       UpgradeNodeDataIO.Save(null);
@@ -34,22 +35,21 @@ public class UpgradePopup : MonoBehaviour
 
    public void Show()
    {
+      Init();
       StartCoroutine(IE_PopupShow());
    }
 
    public IEnumerator IE_PopupShow()
    {
-      Init();
-      
       yield return null;
       
-      this.gameObject.SetActive(true);
+      upgradePopup.SetActive(true);
    }
 
    public IEnumerator ClosePopup()
    {
       yield return null;
-      this.gameObject.SetActive(false);
+      upgradePopup.SetActive(false);
       SaveData();
       // TODO:게임 스타트 연결
    }

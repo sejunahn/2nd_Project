@@ -1,25 +1,37 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] OreSpawner oreSpawner;
     [SerializeField] IsoGridGenerator gridGenerator;
-
     [SerializeField] UpgradePopup upgradePopup;
-
     [SerializeField] MinerController minerController;
 
     [SerializeField] SwordSkill swordSkill;
-    #region Popups
+    //TIMER
+    [SerializeField] float gameTimer ; 
+    [SerializeField] TextMeshProUGUI timerText;
+    
+    private float currentTimer;
+    private bool isGameRunning = false;
+    private Coroutine timerCoroutine;
 
+    public static event Action<float> OnTimerUpdate;
+    public static event Action OnTimerEnd;
+
+    #region Popups
+    
     public void CallUpgradePopup()
     {
         //실제 켜주기
         upgradePopup.Show();
+        PauseGame();
     }
     #endregion
-
 
     /*
      * 1. gamestart -> dissorve ->  gridGen -> oreGen -> uiSetting-> resolve -> ingame
@@ -27,19 +39,167 @@ public class GameManager : MonoBehaviour
      *                                                    -> upgradepopup call -> upgradeing -> startgame -> saveData -> 1.
      * 
      */
-
     public void Start()
     {
         StartGame();
     }
 
+    #region Game Flow
+
     public void StartGame()
     {
-        //뭔가 데이터를 먼저 로드할거면 방식 추가해야됨.
-        
         gridGenerator.Init();
         oreSpawner.Init();
         minerController.SetActiveController();
+        
+        InitTimer();
+        StartTimer();
         swordSkill.Init();
     }
+
+    public void RestartGame()
+    {
+        StopTimer();
+        StartGame();
+    }
+
+    public void PauseGame()
+    {
+        isGameRunning = false;
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        isGameRunning = true;
+        Time.timeScale = 1f;
+    }
+    #endregion
+
+    #region Timer
+    
+    private void InitTimer()
+    {
+        gameTimer = StatManager.Instance.Timer;
+        
+        currentTimer = gameTimer;
+        UpdateTimerUI();
+    }
+    
+    private void StartTimer()
+    {
+        isGameRunning = true;
+        Time.timeScale = 1f;
+        
+        if (timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine);
+        }
+        
+        timerCoroutine = StartCoroutine(TimerCoroutine());
+    }
+    
+    private void StopTimer()
+    {
+        if (timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine);
+            timerCoroutine = null;
+        }
+        isGameRunning = false;
+    }
+    
+    private IEnumerator TimerCoroutine()
+    {
+        while (currentTimer > 0 && isGameRunning)
+        {
+            if (isGameRunning)
+            {
+                currentTimer -= Time.unscaledDeltaTime; 
+                UpdateTimerUI();
+                
+                OnTimerUpdate?.Invoke(currentTimer);
+            }
+            
+            yield return null; 
+        }
+        
+        if (currentTimer <= 0)
+        {
+            currentTimer = 0;
+            UpdateTimerUI();
+            EndGame();
+        }
+    }
+    
+    private void UpdateTimerUI()
+    {
+        if (timerText != null)
+        {
+            // 분:초 형태로 표시
+            int minutes = Mathf.FloorToInt(currentTimer / 60);
+            int seconds = Mathf.FloorToInt(currentTimer % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+    }
+    
+    private void EndGame()
+    {
+        isGameRunning = false;
+        OnTimerEnd?.Invoke();
+
+        StartCoroutine(DelayedUpgradePopup());
+    }
+    
+    private IEnumerator DelayedUpgradePopup()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        CallUpgradePopup();
+    }
+    
+    public void SetGameTimer(float newTime)
+    {
+        gameTimer = newTime;
+        if (!isGameRunning)
+        {
+            currentTimer = gameTimer;
+            UpdateTimerUI();
+        }
+    }
+    
+    
+    public float GetRemainingTime()
+    {
+        return currentTimer;
+    }
+    
+    public float GetTimerProgress()
+    {
+        return 1f - (currentTimer / gameTimer);
+    }
+    
+    public void AddTime(float additionalTime)
+    {
+        currentTimer += additionalTime;
+        currentTimer = Mathf.Min(currentTimer, gameTimer);
+        UpdateTimerUI();
+    }
+    #endregion
+
+    #region Else
+    public void OnUpgradeComplete()
+    {
+        RestartGame();
+    }
+    
+    public void OnKeepGoing()
+    {
+        ResumeGame();
+    }
+    
+    private void OnDestroy()
+    {
+        StopTimer();
+    }
+    #endregion
 }

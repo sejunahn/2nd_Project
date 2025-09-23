@@ -35,7 +35,8 @@ public class StatManager
 
         unlockSword = true;
     }
-    
+
+    public float Timer = 15f;
     public float miningRadius;
     public float miningDPS;
     public float oreRespawnTime;

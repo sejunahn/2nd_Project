@@ -1016,12 +1016,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 1126657279732898290}
   frameImage: {fileID: 1924576794192702814}
   backImage: {fileID: 7705798271876344379}
@@ -1084,12 +1084,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 5779198809897806736}
   frameImage: {fileID: 8227808227587828344}
   backImage: {fileID: 472540987673559128}
@@ -1527,12 +1527,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 8339189827207219852}
   frameImage: {fileID: 1251674518558776564}
   backImage: {fileID: 1961989022504099154}
@@ -2048,12 +2048,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 3453381619404084703}
   frameImage: {fileID: 2696432380019663575}
   backImage: {fileID: 694805747835715141}
@@ -2458,12 +2458,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 1143606648144459225}
   frameImage: {fileID: 1164589953632406250}
   backImage: {fileID: 1489888119839591551}
@@ -4639,12 +4639,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 9183488405220238011}
   frameImage: {fileID: 7063210922375819326}
   backImage: {fileID: 941827564300499261}
@@ -5308,7 +5308,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2263614014195211957}
-  - {fileID: 3062583282370530831}
   m_Father: {fileID: 7002204257462531116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5678,12 +5677,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 3753032416045874325}
   frameImage: {fileID: 4283113213512845982}
   backImage: {fileID: 653703453680160578}
@@ -6586,12 +6585,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 486311256554155083}
   frameImage: {fileID: 2144200356242867552}
   backImage: {fileID: 1187816749435800283}
@@ -6654,12 +6653,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 829322453102269862}
   frameImage: {fileID: 2506063678205214606}
   backImage: {fileID: 6934007706221270251}
@@ -8810,12 +8809,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 1609407838473214640}
   frameImage: {fileID: 5329786179106906057}
   backImage: {fileID: 4501938297503038659}
@@ -8917,12 +8916,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 4098524101519571750}
   frameImage: {fileID: 5263227449650534300}
   backImage: {fileID: 8615083565777653145}
@@ -9561,12 +9560,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 2243404655989254317}
   frameImage: {fileID: 8720388095072775095}
   backImage: {fileID: 5001213021277100004}
@@ -11984,12 +11983,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 5913500017890112475}
   frameImage: {fileID: 1158548406384587690}
   backImage: {fileID: 8796407710470859174}
@@ -14168,12 +14167,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 4244311438388568348}
   frameImage: {fileID: 7760529904279401474}
   backImage: {fileID: 460241340144866606}
@@ -14620,12 +14619,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 5558592129821712494}
   frameImage: {fileID: 6305571978317656847}
   backImage: {fileID: 6909385922078029861}
@@ -15746,12 +15745,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 7050232860901973912}
   frameImage: {fileID: 1895508696859953455}
   backImage: {fileID: 5426274861960176976}
@@ -16114,12 +16113,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 6898650791219998502}
   frameImage: {fileID: 1657994091917328477}
   backImage: {fileID: 3966865837100038068}
@@ -16527,12 +16526,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 3945770980250040668}
   frameImage: {fileID: 1927360355742392660}
   backImage: {fileID: 1695896749843799496}
@@ -16692,142 +16691,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 258, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &4517369047588206600
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9105020193761330801}
-  - component: {fileID: 628166526904438150}
-  - component: {fileID: 7325936423812968982}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &9105020193761330801
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4517369047588206600}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3062583282370530831}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &628166526904438150
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4517369047588206600}
-  m_CullTransparentMesh: 1
---- !u!114 &7325936423812968982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4517369047588206600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Button
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4536486496161568784
 GameObject:
   m_ObjectHideFlags: 0
@@ -17073,12 +16936,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 3263583177923241473}
   frameImage: {fileID: 2329023896568072729}
   backImage: {fileID: 2644692662203567649}
@@ -19952,12 +19815,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 7475510851117756817}
   frameImage: {fileID: 1560936191562418982}
   backImage: {fileID: 7923307222270341718}
@@ -20095,12 +19958,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 1501334244814983091}
   frameImage: {fileID: 3636622879817119568}
   backImage: {fileID: 3655374989947788700}
@@ -21123,12 +20986,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 2025254977391989300}
   frameImage: {fileID: 238721760847233232}
   backImage: {fileID: 3752593867290159892}
@@ -21995,12 +21858,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 4352386869594082964}
   frameImage: {fileID: 7879220689960532542}
   backImage: {fileID: 1103727307198178580}
@@ -22063,12 +21926,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 8464729647548745559}
   frameImage: {fileID: 8713227792000216047}
   backImage: {fileID: 2714279603165516443}
@@ -22131,12 +21994,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 5778579443416946743}
   frameImage: {fileID: 8089225814464282854}
   backImage: {fileID: 7438279330545356580}
@@ -22394,12 +22257,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 1334517937951983915}
   frameImage: {fileID: 5501001333526550724}
   backImage: {fileID: 1594769622308426901}
@@ -23032,151 +22895,18 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 8958783499009803131}
   frameImage: {fileID: 5839289624971676660}
   backImage: {fileID: 2759798687810098468}
   iconImage: {fileID: 5042879013165283417}
   upgradedColor: {r: 1, g: 0.9833826, b: 0, a: 1}
   lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
---- !u!1 &6024882431665349210
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3062583282370530831}
-  - component: {fileID: 6260466517832968404}
-  - component: {fileID: 4817220745631519836}
-  - component: {fileID: 1121716648120440311}
-  m_Layer: 5
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3062583282370530831
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6024882431665349210}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9105020193761330801}
-  m_Father: {fileID: 9035620270929267223}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -328}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6260466517832968404
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6024882431665349210}
-  m_CullTransparentMesh: 1
---- !u!114 &4817220745631519836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6024882431665349210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &1121716648120440311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6024882431665349210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 4817220745631519836}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7791467782378905972}
-        m_TargetAssemblyTypeName: UpgradePopup, Assembly-CSharp
-        m_MethodName: LoadData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6062220801486434468
 GameObject:
   m_ObjectHideFlags: 0
@@ -23233,12 +22963,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 2449262490423264307}
   frameImage: {fileID: 2436346666336162664}
   backImage: {fileID: 7606453701056212102}
@@ -23826,12 +23556,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 6063458344619751378}
   frameImage: {fileID: 6382234093245539591}
   backImage: {fileID: 202820697227095433}
@@ -23894,12 +23624,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 2459141668730608149}
   frameImage: {fileID: 5778508794124429361}
   backImage: {fileID: 7057375259016815743}
@@ -24340,12 +24070,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 4775089446796196766}
   frameImage: {fileID: 2437522609446970634}
   backImage: {fileID: 1778974853516288339}
@@ -24978,12 +24708,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 5317771005034238424}
   frameImage: {fileID: 4683482956548923117}
   backImage: {fileID: 1365164096846484168}
@@ -26141,12 +25871,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 53884589680572497}
   frameImage: {fileID: 1300140843932280758}
   backImage: {fileID: 1607673688152269669}
@@ -26509,12 +26239,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 902242818631947292}
   frameImage: {fileID: 6181690959810436970}
   backImage: {fileID: 5856360256962809047}
@@ -26652,12 +26382,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 6388678491129783978}
   frameImage: {fileID: 3390121784261951826}
   backImage: {fileID: 4734267181336811362}
@@ -26720,12 +26450,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 7375566769768910464}
   frameImage: {fileID: 954387332636599566}
   backImage: {fileID: 1848482030385735760}
@@ -27463,12 +27193,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 6864195576159192059}
   frameImage: {fileID: 9011746725181707519}
   backImage: {fileID: 593486979400723505}
@@ -27531,12 +27261,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 428301776458903705}
   frameImage: {fileID: 8568097340449635085}
   backImage: {fileID: 8074735626488618716}
@@ -27869,12 +27599,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 8902954255553233810}
   frameImage: {fileID: 3621770097225098430}
   backImage: {fileID: 2132595000785640186}
@@ -28012,12 +27742,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 7015655509383798196}
   frameImage: {fileID: 3102223483574885210}
   backImage: {fileID: 3395224590567438956}
@@ -28283,7 +28013,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7002204257462531116}
-  - component: {fileID: 7791467782378905972}
   m_Layer: 0
   m_Name: Popup
   m_TagString: Untagged
@@ -28307,70 +28036,6 @@ Transform:
   - {fileID: 9035620270929267223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7791467782378905972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7383111740367072400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2040f0ffeb7e27545b5130604a35d921, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodes: []
-  upgradeNodes:
-  - {fileID: 2060909848125237135}
-  - {fileID: 5761122699884561805}
-  - {fileID: 7332988356430167012}
-  - {fileID: 946090037411886539}
-  - {fileID: 7606530727301877641}
-  - {fileID: 689182688250697068}
-  - {fileID: 1933463121473725388}
-  - {fileID: 3079329279039741859}
-  - {fileID: 4956866278658056971}
-  - {fileID: 6897095802305537387}
-  - {fileID: 3221485809873501536}
-  - {fileID: 7134311443336426710}
-  - {fileID: 558310309837678769}
-  - {fileID: 5181864989811202186}
-  - {fileID: 3030794645055449397}
-  - {fileID: 4257276976389046662}
-  - {fileID: 3697221740344477044}
-  - {fileID: 6271085874910948104}
-  - {fileID: 7437359119364485659}
-  - {fileID: 3458978860612648812}
-  - {fileID: 2539320972992743484}
-  - {fileID: 6326017619434933455}
-  - {fileID: 4916519797757479765}
-  - {fileID: 6445613556722771340}
-  - {fileID: 8670283113976318695}
-  - {fileID: 4224311270620892754}
-  - {fileID: 5950106518992812414}
-  - {fileID: 6676863558869279799}
-  - {fileID: 5115777617107543663}
-  - {fileID: 460899245873639345}
-  - {fileID: 7709944642746888738}
-  - {fileID: 5676082514512471957}
-  - {fileID: 1253415945144416586}
-  - {fileID: 4953693002751727714}
-  - {fileID: 8866823493506148442}
-  - {fileID: 8322878464710751299}
-  - {fileID: 6263094144960045269}
-  - {fileID: 8644389118010660841}
-  - {fileID: 1719763134532401665}
-  - {fileID: 8068825103670002087}
-  - {fileID: 2854805831141106157}
-  - {fileID: 606352969466475595}
-  - {fileID: 5695756485219978075}
-  - {fileID: 5014711348464453839}
-  - {fileID: 6980192028121275398}
-  - {fileID: 6585022481209891391}
-  - {fileID: 8531669661965128144}
-  - {fileID: 6361665021895028924}
-  - {fileID: 8484380497919787191}
-  - {fileID: 3117521948503966712}
 --- !u!1 &7394716300506666975
 GameObject:
   m_ObjectHideFlags: 0
@@ -28427,12 +28092,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 5750284911992710559}
   frameImage: {fileID: 4331242015065314709}
   backImage: {fileID: 2062345357924200091}
@@ -28762,12 +28427,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 935172893428817717}
   frameImage: {fileID: 1193760400902838828}
   backImage: {fileID: 5819187737686317220}
@@ -28980,12 +28645,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 8345553733588052013}
   frameImage: {fileID: 5516136896647151358}
   backImage: {fileID: 2162697430848217615}
@@ -29966,12 +29631,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 2746222925661066529}
   frameImage: {fileID: 7191881855391003981}
   backImage: {fileID: 7845433455105897683}
@@ -31492,12 +31157,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 7987865195391154081}
   frameImage: {fileID: 6627322317644859240}
   backImage: {fileID: 5037980403329191689}
@@ -32427,12 +32092,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 1239110326825734214}
   frameImage: {fileID: 3400317815812234282}
   backImage: {fileID: 841792147202918424}
@@ -33629,12 +33294,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 666357181792549124}
   frameImage: {fileID: 7126549167143458027}
   backImage: {fileID: 8845167663407305820}
@@ -33811,12 +33476,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 9143084243457788031}
   frameImage: {fileID: 5483071962393055974}
   backImage: {fileID: 7746618607462289716}
@@ -34638,12 +34303,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 4034963948054893288}
   frameImage: {fileID: 3716513843514699585}
   backImage: {fileID: 1551796922780987994}
@@ -34931,12 +34596,12 @@ MonoBehaviour:
     Index: 0
     upgradeType: 0
     value: 1
-    oreIndex: 0
     title: 
     description: 
     costInfo: 
     upgradeCount: 0
     upgradeMaxCount: 0
+    upgradeValues: []
   upgradeButton: {fileID: 7532762506278677925}
   frameImage: {fileID: 2596308832434496220}
   backImage: {fileID: 3534719020762268142}
