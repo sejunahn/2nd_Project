@@ -43,6 +43,7 @@ public class StatManager
     public int silverBar;
     public int goldBar;
 
+    public bool unlockSton;
     public bool unlockIron;
     public bool unlockCopper;
     public bool unlockSilver;
@@ -68,6 +69,7 @@ public class StatManager
         goldBar = 0;
 
         // 해금 상태는 false로 시작
+        unlockSton = true;
         unlockIron = false;
         unlockCopper = false;
         unlockSilver = false;
