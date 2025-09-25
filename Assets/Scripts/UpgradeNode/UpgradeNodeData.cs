@@ -7,8 +7,8 @@ public enum UpgradeType
     Damage ,
     Respawn, 
     UnlockOre, 
-    OreInitCount,
-    OreMaxCount,
+    InitCount,
+    MaxCount,
     //
     UnlockSword,
     SwordChance,

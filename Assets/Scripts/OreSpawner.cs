@@ -112,7 +112,7 @@ public class OreSpawner : MonoBehaviour
     {
         List<GameObject> unlocked = new List<GameObject>();
 
-        if(StatManager.Instance.unlockSton && orePrefabs.Length >0) unlocked.Add(orePrefabs[0]);
+        
         if (StatManager.Instance.unlockIron && orePrefabs.Length > 1) unlocked.Add(orePrefabs[1]);
         if (StatManager.Instance.unlockCopper && orePrefabs.Length > 2) unlocked.Add(orePrefabs[2]);
         if (StatManager.Instance.unlockSilver && orePrefabs.Length > 3) unlocked.Add(orePrefabs[3]);

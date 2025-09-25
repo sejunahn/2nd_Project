@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
      */
     public void Start()
     {
+        StatManager.Instance.Init();
+        
+        
         endUpgradeAction = ()=> { OnUpgradeComplete(); };
         StartGame();
     }

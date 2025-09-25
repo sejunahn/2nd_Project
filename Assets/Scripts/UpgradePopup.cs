@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class UpgradePopup : MonoBehaviour
 {
-   public List<UpgradeNodeData> nodes= null;
+   public List<UpgradeNodeData> nodes= new List<UpgradeNodeData>();
 
    [SerializeField]private List<UpgradeNode> upgradeNodes;
    
@@ -16,27 +16,19 @@ public class UpgradePopup : MonoBehaviour
    private Coroutine Co_Popup;
    public void SaveData()
    {
-      //TODO: save는 구현아직 안됐음
-      // UpgradeNodeDataIO.Save(nodes);
+      StatManager.Instance.SaveData();
    }
    
-   public void LoadData()
+   private void Init()
    {
-      nodes = null;
-      var items = UpgradeNodeDataIO.Load();
-
-      nodes = items;
+      if (nodes != null)
+         nodes = null;
+      nodes = StatManager.Instance.upgradeNodes;
 
       for (int i = 0; i < upgradeNodes.Count; i++)
       {
          upgradeNodes[i].InitNode(nodes[i]);
       }
-   }
-
-   private void Init()
-   {
-      LoadData();
-      
    }
 
    public void Show(Action action)
