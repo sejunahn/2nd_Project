@@ -17,10 +17,10 @@ public class IsoGridGenerator : MonoBehaviour
 
     [Header("Animation")]
     public float spawnHeightOffset = 1f;
-    public float dropDuration = 0.2f;      // 내려오는 시간
-    public float bounceHeight = 0.2f;      // 덜컹 높이
-    public float bounceDuration = 0.1f;    // 덜컹 시간
-    public float totalDuration = 1f;       // 전체 완료 시간
+    public float dropDuration = 0.2f;
+    public float bounceHeight = 0.2f;
+    public float bounceDuration = 0.1f;
+    public float totalDuration = 1f;
 
     public void Init()
     {
@@ -43,7 +43,7 @@ public class IsoGridGenerator : MonoBehaviour
         }
     }
 
-    public System.Action OnGridGenerated; // 생성 완료 콜백
+    public System.Action OnGridGenerated;
 
     IEnumerator GenerateCenterOut()
     {
@@ -77,7 +77,6 @@ public class IsoGridGenerator : MonoBehaviour
             yield return new WaitForSeconds(waveDelay);
         }
 
-        // 맵 생성 완료 시점
         OnGridGenerated?.Invoke();
     }
 
@@ -90,7 +89,6 @@ public class IsoGridGenerator : MonoBehaviour
         Vector3 endPos = new Vector3(targetPos.x, targetPos.y, 0f);
         tile.position = startPos;
 
-        // 내려오는 구간
         float t = 0;
         while (t < 1f)
         {
@@ -99,7 +97,6 @@ public class IsoGridGenerator : MonoBehaviour
             yield return null;
         }
 
-        // 덜컹 (튀어오르기)
         Vector3 bounceUp = endPos + Vector3.up * bounceHeight;
         t = 0;
         while (t < 1f)
@@ -109,7 +106,7 @@ public class IsoGridGenerator : MonoBehaviour
             yield return null;
         }
 
-        tile.position = endPos; // 최종 고정
+        tile.position = endPos;
     }
 
     public Vector2 GridToWorld(int r, int c)

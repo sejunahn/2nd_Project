@@ -26,7 +26,7 @@ public class OreNode : MonoBehaviour
     private Transform pickaxeTr;
     private bool isSwinging = false;    
 
-    public OreType oreType;  // 이 광석이 어떤 종류인지 선택
+    public OreType oreType;
 
     public void TakeDamage(float amount)
     {
@@ -34,7 +34,6 @@ public class OreNode : MonoBehaviour
 
         hp -= amount;
 
-        // 공격을 받고 있으면 곡괭이 생성/활성화
         if (pickaxePrefab != null)
         {
             if (pickaxeObj == null)
@@ -63,7 +62,6 @@ public class OreNode : MonoBehaviour
         float timer = 0f;
         float targetAngle = -swingAngle;
 
-        // 내려찍기
         while (timer < downDuration)
         {
             float t = timer / downDuration;
@@ -77,7 +75,6 @@ public class OreNode : MonoBehaviour
 
         yield return new WaitForSeconds(hitPause);
 
-        // 복귀
         timer = 0f;
         while (timer < upDuration)
         {
@@ -92,7 +89,6 @@ public class OreNode : MonoBehaviour
         pickaxeTr.localEulerAngles = Vector3.zero;
         isSwinging = false;
 
-        // 공격 종료 시 곡괭이 사라짐
         pickaxeObj.SetActive(false);
     }
 

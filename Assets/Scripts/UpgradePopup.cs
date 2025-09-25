@@ -7,9 +7,7 @@ using UnityEngine;
 public class UpgradePopup : MonoBehaviour
 {
    public List<UpgradeNodeData> nodes= new List<UpgradeNodeData>();
-
    [SerializeField]private List<UpgradeNode> upgradeNodes;
-   
    [SerializeField] private GameObject upgradePopup;
    
    private Action endAction;

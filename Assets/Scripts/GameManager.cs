@@ -55,13 +55,12 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         gridGenerator.Init();
-        // 맵 생성 완료 후에 광석 생성 시작
         gridGenerator.OnGridGenerated += () =>
         {
             oreSpawner.Init();
         };
 
-        minerController.SetActiveController();
+        minerController.ActiveController();
 
         InitTimer();
         StartTimer();

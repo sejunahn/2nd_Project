@@ -30,20 +30,10 @@ public static class UpgradeNodeDataIO
 
     #region Save Methods
     
-    // public static void Save(List<UpgradeNodeData> nodeDataList)
-    // {
-    //     NodeDataListWrapper wrapper = new NodeDataListWrapper();
-    //     wrapper.items = nodeDataList;
-    //
-    //     string json = JsonUtility.ToJson(wrapper, true);
-    //     File.WriteAllText(SavePath, json);
-    //     Debug.Log($"NodeData 저장 완료: {SavePath}");
-    // }
     public static void SaveGameData(NodeDataListWrapper wrapper)
     {
         string json = JsonUtility.ToJson(wrapper, true);
         File.WriteAllText(SavePath, json);
-        Debug.Log($"NodeData 저장 완료: {SavePath}");
     }
     public static void SaveGameData(
         List<UpgradeNodeData> nodeDataList,
@@ -96,34 +86,15 @@ public static class UpgradeNodeDataIO
         }
         
         File.WriteAllText(SavePath, json);
-        Debug.Log($"전체 게임 데이터 저장 완료: {SavePath}");
     }
-
-    // Wrapper 객체를 직접 받아서 저장
-    // public static void SaveWrapper(NodeDataListWrapper wrapper)
-    // {
-    //     string json = JsonUtility.ToJson(wrapper, true);
-    //     
-    //     string directory = Path.GetDirectoryName(SavePath);
-    //     if (!Directory.Exists(directory))
-    //     {
-    //         Directory.CreateDirectory(directory);
-    //     }
-    //     
-    //     File.WriteAllText(SavePath, json);
-    //     Debug.Log($"Wrapper 데이터 저장 완료: {SavePath}");
-    // }
-
     #endregion
 
     #region Load Methods
 
-    // 기존 방식: 노드 데이터만 로드
     public static List<UpgradeNodeData> Load()
     {
         if (!File.Exists(SavePath))
         {
-            Debug.LogWarning("저장된 데이터 없음");
             return new List<UpgradeNodeData>();
         }
 
@@ -136,33 +107,24 @@ public static class UpgradeNodeDataIO
     public static NodeDataListWrapper LoadWrapper()
     {
         if (!File.Exists(SavePath))
-        {
-            Debug.LogWarning("저장된 데이터 없음, 기본값 반환");
             return CreateDefaultWrapper();
-        }
-
+        
         try
         {
             string json = File.ReadAllText(SavePath);
             NodeDataListWrapper wrapper = JsonUtility.FromJson<NodeDataListWrapper>(json);
             
             if (wrapper == null)
-            {
-                Debug.LogError("데이터 파싱 실패, 기본값 반환");
                 return CreateDefaultWrapper();
-            }
             
-            Debug.Log($"게임 데이터 로드 완료: Timer={wrapper.timer}, Radius={wrapper.miningRadius}");
             return wrapper;
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"데이터 로드 실패: {e.Message}, 기본값 반환");
             return CreateDefaultWrapper();
         }
     }
-
-    // 특정 데이터만 로드하는 메서드들
+    
     public static float LoadTimer()
     {
         var wrapper = LoadWrapper();
@@ -193,7 +155,7 @@ public static class UpgradeNodeDataIO
         var wrapper = LoadWrapper();
         return new bool[]
         {
-            true, // Stone은 기본 해금
+            true,
             wrapper.unlockIron,
             wrapper.unlockCopper,
             wrapper.unlockSilver,
@@ -203,9 +165,6 @@ public static class UpgradeNodeDataIO
 
     #endregion
 
-    #region Utility Methods
-
-    // 기본값으로 초기화된 Wrapper 생성
     public static NodeDataListWrapper CreateDefaultWrapper()
     {
         return new NodeDataListWrapper
@@ -230,7 +189,6 @@ public static class UpgradeNodeDataIO
         };
     }
 
-    // 저장 파일 존재 여부 확인
     public static bool SaveFileExists()
     {
         return File.Exists(SavePath);
@@ -240,21 +198,11 @@ public static class UpgradeNodeDataIO
     public static void DeleteSaveFile()
     {
         if (File.Exists(SavePath))
-        {
             File.Delete(SavePath);
-            Debug.Log("저장 파일 삭제 완료");
-        }
-        else
-        {
-            Debug.LogWarning("삭제할 저장 파일이 없습니다");
-        }
     }
-
-    // 저장 경로 반환 (디버그용)
+    
     public static string GetSavePath()
     {
         return SavePath;
     }
-
-    #endregion
 }

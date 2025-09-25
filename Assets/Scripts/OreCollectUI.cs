@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // TextMeshPro 사용
+using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,9 +12,9 @@ public class OreCollectUI : MonoBehaviour
     public class OreUIData
     {
         public OreType type;
-        public GameObject prefab;          // 날아가는 아이콘 프리팹
-        public RectTransform targetIcon;   // 목표 UI 위치
-        public TMP_Text countText;         // 수량 표시 UI
+        public GameObject prefab;
+        public RectTransform targetIcon;
+        public TMP_Text countText;
     }
 
     [Header("Ore UI Data")]
@@ -25,11 +25,10 @@ public class OreCollectUI : MonoBehaviour
     public Canvas canvas;
 
     [Header("Fly Settings")]
-    public float flyDuration = 0.35f;  // 빠르게 (0.7 → 0.35)
+    public float flyDuration = 0.35f;
     public float bezierHeight = 120f;
     public Vector2 iconSize = new Vector2(30f, 30f);
 
-    // 각 광석 보유량
     private Dictionary<OreType, int> oreCounts = new Dictionary<OreType, int>();
 
     void Awake()
@@ -42,7 +41,7 @@ public class OreCollectUI : MonoBehaviour
             if (!oreUIDict.ContainsKey(data.type))
             {
                 oreUIDict.Add(data.type, data);
-                oreCounts[data.type] = 0; // 초기화
+                oreCounts[data.type] = 0;
                 if (data.countText != null)
                     data.countText.text = "0";
             }
@@ -67,12 +66,9 @@ public class OreCollectUI : MonoBehaviour
         if (!oreUIDict.ContainsKey(type)) return;
         OreUIData data = oreUIDict[type];
 
-        // 시작 위치
         Vector2 startLocal = WorldToCanvasLocal(worldPos);
-        // 목표 위치
         Vector2 targetLocal = canvas.transform.InverseTransformPoint(data.targetIcon.position);
 
-        // 아이콘 생성
         GameObject icon = Instantiate(data.prefab, canvas.transform);
         RectTransform iconTr = icon.GetComponent<RectTransform>();
         iconTr.pivot = new Vector2(0.5f, 0.5f);
@@ -81,7 +77,6 @@ public class OreCollectUI : MonoBehaviour
         iconTr.anchoredPosition = startLocal;
         iconTr.sizeDelta = iconSize;
 
-        // 이동
         StartCoroutine(FlyToTarget(iconTr, targetLocal, type));
     }
 
@@ -106,7 +101,6 @@ public class OreCollectUI : MonoBehaviour
         iconTr.anchoredPosition = end;
         Destroy(iconTr.gameObject);
 
-        // 도착 시 수량 증가
         oreCounts[type]++;
         OreUIData data = oreUIDict[type];
         if (data.countText != null)

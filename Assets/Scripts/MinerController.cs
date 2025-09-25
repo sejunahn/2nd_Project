@@ -5,20 +5,18 @@ public class MinerController : MonoBehaviour
 {    
     public Camera cam;     
     public LayerMask oreLayer;
-    public SpriteRenderer radiusVisual; // 원형 SpriteRenderer
-    [Range(0.5f, 2f)]
-    public float visualScaleFix = 1f; // 보정 값
-
+    public SpriteRenderer radiusVisual;
+    public float visualScaleFix = 1f;
     private Collider2D[] buffer = new Collider2D[32];
 
     public bool isActive = false;
 
-    public void SetActiveController()
+    public void ActiveController()
     {
         isActive = true;
     }
 
-    public void SetInactiveController()
+    public void DeactiveController()
     {
         isActive = false;
     }
@@ -39,25 +37,14 @@ public class MinerController : MonoBehaviour
         if (isActive)
         {
             Vector3 mp = Input.mousePosition;
-            mp.z = Mathf.Abs(cam.transform.position.z); // 카메라 거리 반영
+            mp.z = Mathf.Abs(cam.transform.position.z);
             Vector3 world = cam.ScreenToWorldPoint(mp);
             world.z = 0f;
             transform.position = world;
 
-            // 반경 내 광석에 데미지
-            //int count = Physics2D.OverlapCircleNonAlloc(world, StatManager.Instance.miningRadius, buffer, oreLayer);
-            //
             buffer = Physics2D.OverlapCircleAll(world, StatManager.Instance.miningRadius, oreLayer);
-            //
-
+           
             float damage = StatManager.Instance.miningDPS * Time.deltaTime;
-
-            //for (int i = 0; i < count; i++)
-            //{
-            //    if (buffer[i] == null) continue;
-            //    var ore = buffer[i].GetComponent<OreNode>();
-            //    if (ore != null) ore.TakeDamage(damage);
-            //}
 
             for (int i = 0; i < buffer.Length; i++)
             {
@@ -66,12 +53,8 @@ public class MinerController : MonoBehaviour
                 if (ore != null) ore.TakeDamage(damage);
             }
 
-
-            // 반경 시각화 갱신
             UpdateRadiusVisual();   
         }
-        // 마우스 월드 좌표
-        
     }
 
     void UpdateRadiusVisual()
